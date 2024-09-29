@@ -413,3 +413,43 @@ header nav .nav-links a.active{
         width: 100%;
     }
 }
+.portfolio .boxs .box{
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+    width: 30%; 
+    margin: 25px; 
+    display: inline-block; 
+}
+
+.portfolio .boxs .box img{
+    width: 100%;
+    height: 300px; 
+    object-fit: cover; 
+    border-radius: 10px; 
+}
+.get-in-touch {
+    text-align: center;
+    margin-top: 42px;
+}
+
+.get-in-touch h2 {
+    font-size: 37px; 
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+}
+
+.social-link {
+    margin: 0 10px;
+    font-size: 35px;
+    color: #1c1e22;
+    transition: 0.3s;
+}
+
+.social-link:hover {
+    color: #ffaa17;
+}
