@@ -4,195 +4,954 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <meta name="description" content="Moataz Abdelraouf - AI Engineer specializing in Computer Vision, NLP, and Generative AI">
+    <meta name="keywords" content="AI Engineer, Machine Learning, Computer Vision, NLP, Deep Learning">
+    <title>Moataz Abdelraouf | AI Engineer</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- link file css -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="step-switcher.css">
+    <link rel="stylesheet" href="hero-typing.css">
+    <link rel="stylesheet" href="card-tilt.css">
 </head>
 
 <body>
-    <header>
-        <nav class="contanier">
-            <img class="logo" src="img/logo.png" alt="">
-            <i id="btn-menu" class="fa-solid fa-bars"></i>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">
+                <span class="logo-text">MOATAZ DAHY</span>
+            </a>
+            <div class="nav-actions">
+                <button id="btn-menu" class="menu-toggle" aria-label="Toggle menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
             <div class="nav-links">
-                <a href="#home" class="active">Home</a>
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#Portfolio">Portfolio</a>
-                <a href="#Contact">Contact</a>
+                <a href="#home" class="nav-link active" data-i18n="nav-home">Home</a>
+                <a href="#about" class="nav-link" data-i18n="nav-about">About</a>
+                <a href="#projects" class="nav-link" data-i18n="nav-projects">Projects</a>
+                <a href="#skills" class="nav-link" data-i18n="nav-skills">Skills</a>
+                <a href="#certificates" class="nav-link" data-i18n="nav-certificates">Certificates</a>
+                <a href="#contact" class="nav-link" data-i18n="nav-contact">Contact</a>
+                <a href="pdf/Abdelraouf Dahy Abdelraouf-CV2.pdf" class="nav-link" data-i18n="nav-resume" download target="_blank">Resume</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button id="lang-toggle" class="lang-toggle" aria-label="Switch to Arabic">
+                    <span>AR</span>
+                </button>
             </div>
         </nav>
     </header>
-<!-- start home sec -->
-    <div class="hero" id="home">
-        <div class="contanier">
-            <div class="content">
-                <h4>Hello, I'm</h4>
-                <h1>Abdelraouf Dahy</h1>
-                <p>AI Engineer</p>
-            </div>
 
-            <div class="hero-img">
-                <img src="img/moataz.png.png" alt="">
-            </div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
         </div>
-    </div>
-
-    <!-- start about sec -->
-
-    <section id="about" class="about">
-        <div class="contanier">
-            <div class="about-img">
-                <img src="img/moataz2.jpg" alt="">
-            </div>
-            <div class="content">
-                <h1>About <span>Me</span></h1>
-                <h3>AI Engineer</h3>
-                <p>A passionate AI engineer dedicated to developing innovative AI solutions.
-                    Proficient in machine learning, deep learning, and natural language processing.
-                    Experienced in working with large datasets and developing predictive models.
-                    Enthusiastic about staying updated with the latest trends and technologies in AI engineering.
-                    Committed to collaborating with cross-functional teams to deliver innovative solutions that elevate business objectives.</p>
-                     <div class="btns">
-                        <a href="https://www.linkedin.com/in/moataz-abdelraouf-390429290" class="btn">Download CV</a>
-                        <a href="#Contact" class="btn">Contact Me</a> <!--hana-->
-                     </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- start Services -->
-
-    <section id="services" class="services">
         <div class="container">
-            <div class="sec-top">
-                <h1>  <span> Our Services</span></h1>
-            </div>
-    
-            <div class="boxs">
-    
-                <div class="box">
-                    <i class="fa-solid fa-robot"></i>
-                    <h3>AI Model Development</h3>
-                    <p>Developing custom AI models tailored to your business needs.</p>
-    
-                    <a href="#" class="btn">Read More</a>
-                </div>
-    
-                <div class="box">
-                    <i class="fa-solid fa-database"></i>
-                    <h3>Data Analysis</h3>
-                    <p>Analyzing large datasets to uncover insights and trends.</p>
-    
-                    <a href="#" class="btn">Read More</a>
-                </div>
-    
-                <div class="box">
-                    <i class="fa-solid fa-code"></i>
-                    <h3>AI Engineering</h3>
-                    <p>Developing scalable and efficient AI solutions.</p>
-    
-                    <a href="#" class="btn">Read More</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- start Portfolio -->
-
-    <section id="Portfolio" class="portfolio">
-        <div class="contanier">
-            <div class="sec-top">
-                <h1>Latest <span>Projects</span></h1>
-            </div>
-
-            <div class="boxs">
-
-                <div class="box">
-                    <div class="box-hover">
-                        <span>Landing Page</span>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2 class="hero-title">
+                        <span data-i18n="hero-title-1">Building Intelligent Systems</span><br>
+                        <span class="gradient-text" data-i18n="hero-title-2">That Transform Industries</span>
+                    </h2>
+                    <p class="hero-role">
+                        <span class="hero-role__prefix" data-i18n="hero-role-prefix">I'm a</span>
+                        <span class="hero-role__dynamic" data-typed='["Machine Learning Engineer", "Computer Vision Specialist", "Generative AI Developer", "Agentic AI Builder"]'></span>
+                        <span class="hero-role__cursor"></span>
+                    </p>
+                    <p class="hero-description" data-i18n="hero-description">
+                        Hello, I'm Moataz Dahy Abdelraouf, an AI Engineer specializing in Machine Learning, Computer Vision, NLP, Generative AI, RAG Systems, Agentic AI, and Intelligent Automation.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">
+                            <span data-i18n="hero-view-work">View My Work</span>
+                            <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="pdf/Abdelraouf Dahy Abdelraouf-CV2.pdf" class="btn btn-secondary" id="download-cv-btn" download>
+                            <span data-i18n="hero-download-cv">Download CV</span>
+                            <i class="fa-solid fa-download ml-2"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <span data-i18n="hero-lets-talk">Let's Talk</span>
+                            <i class="fa-solid fa-message ml-2"></i>
+                        </a>
                     </div>
-                    <img src="img\project1.avif" alt="">
                 </div>
-
-                <div class="box">
-                    <div class="box-hover">
-                        <span>Landing Page</span>
+                <div class="hero-visual">
+                    <div class="hero-image-container">
+                        <img src="img/moataz.png.png" alt="Moataz Abdelraouf" class="hero-photo">
                     </div>
-                    <img src="img/project2.avif" alt="">
                 </div>
-
-                <div class="box">
-                    <div class="box-hover">
-                        <span>Landing Page</span>
-                    </div>
-                    <img src="img/project3.avif" alt="">
-                </div>
-
-                <div class="box">
-                    <div class="box-hover">
-                        <span>Landing Page</span>
-                    </div>
-                    <img src="img/project4.avif" alt="">
-                </div>
-
-                <div class="box">
-                    <div class="box-hover">
-                        <span>Landing Page</span>
-                    </div>
-                    <img src="img/project5.avif" alt="">
-                </div>
-
-                <div class="box">
-                    <div class="box-hover">
-                        <span>Landing Page</span>
-                    </div>
-                    <img src="img/project6.avif" alt="">
-                </div>
-
             </div>
         </div>
     </section>
 
-
-    <!-- start Contact -->
-
-    <section id ="Contact" class="contact">
+    <!-- Expertise Section -->
+    <section class="expertise">
         <div class="container">
-            <div class="sec-top">
-                <h1> <span>Contact Me</span></h1>
+            <div class="section-header">
+                <p class="section-subtitle" data-i18n="expertise-subtitle">What I Do</p>
+                <h2 class="section-title" data-i18n="expertise-title">AI Expertise</h2>
             </div>
-    
-            <form action="">
-                <input type="text" placeholder="First Name">
-                <input type="text" placeholder="Last Name">
-                <input type="number" placeholder="Phone Number">
-                <input type="email" placeholder="Email Address">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-                <button class="btn">Send Message</button>
-            </form>
+            <div class="expertise-grid" data-step-switcher data-per-page="3">
+                <div class="expertise-card" data-tilt>
+                    <div class="expertise-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 data-i18n="expertise-ml">Machine Learning</h3>
+                    <p data-i18n="expertise-ml-desc">Supervised and unsupervised learning, feature engineering, and model evaluation for predictive analytics.</p>
+                </div>
+                <div class="expertise-card" data-tilt>
+                    <div class="expertise-icon">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 data-i18n="expertise-dl">Deep Learning</h3>
+                    <p data-i18n="expertise-dl-desc">CNNs, RNNs, and attention mechanisms for complex pattern recognition and prediction tasks.</p>
+                </div>
+                <div class="expertise-card" data-tilt>
+                    <div class="expertise-icon">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 data-i18n="expertise-cv">Computer Vision</h3>
+                    <p data-i18n="expertise-cv-desc">Object detection, image classification, and video analysis using YOLO, OpenCV, and Vision Transformers.</p>
+                </div>
+                <div class="expertise-card" data-tilt>
+                    <div class="expertise-icon">
+                        <i class="fa-solid fa-language"></i>
+                    </div>
+                    <h3 data-i18n="expertise-nlp">Natural Language Processing</h3>
+                    <p data-i18n="expertise-nlp-desc">Text generation, sentiment analysis, and document processing with Transformers, BERT, and GPT.</p>
+                </div>
+                <div class="expertise-card" data-tilt>
+                    <div class="expertise-icon">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 data-i18n="expertise-genai">Generative AI</h3>
+                    <p data-i18n="expertise-genai-desc">Large Language Models, image generation, and content creation using cutting-edge AI techniques.</p>
+                </div>
+                <div class="expertise-card" data-tilt>
+                    <div class="expertise-icon">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <h3 data-i18n="expertise-rag">RAG Systems</h3>
+                    <p data-i18n="expertise-rag-desc">Retrieval-Augmented Generation for building knowledge-aware AI applications with accurate, contextual responses.</p>
+                </div>
+                <div class="expertise-card" data-tilt>
+                    <div class="expertise-icon">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <h3 data-i18n="expertise-agentic">Agentic AI</h3>
+                    <p data-i18n="expertise-agentic-desc">Autonomous AI agents that can reason, plan, and execute complex tasks independently with human oversight.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- start get-in-touch -->
+    <!-- Featured Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle" data-i18n="projects-subtitle">My Work</p>
+                <h2 class="section-title" data-i18n="projects-title">Featured Projects</h2>
+                <p class="section-description" data-i18n="projects-description">Building AI solutions that solve real-world problems</p>
+            </div>
+            <div class="projects-grid" data-step-switcher data-per-page="3">
+                <!-- Project 1: Car License Plate Detection -->
+                <div class="project-card" data-tilt>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Computer Vision</span>
+                            <span class="tag">YOLO</span>
+                            <span class="tag">Deep Learning</span>
+                        </div>
+                        <h3 data-i18n="proj-title-1">Car License Plate Detection</h3>
+                        <p data-i18n="proj-desc-1">Real-time license plate detection system using computer vision techniques for automated vehicle identification and parking management.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Moataz899/Car_License_Plate_Detection" target="_blank" class="btn btn-outline btn-sm">
+                                <i class="fa-brands fa-github"></i>
+                                <span data-i18n="project-code">Code</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="get-in-touch">
-        <h2>Get in Touch!📬</h2>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/moataz-abdelraouf-390429290" target="_blank" class="social-link">
-                <i class="fa-brands fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/Moataz899" target="_blank" class="social-link">
-                <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="mailto:abdelraoufdahy@gmail.com" target="_blank" class="social-link">
-                <i class="fa-solid fa-envelope"></i>
-            </a>
+                <!-- Project 2: Brain Tumor Classification -->
+                <div class="project-card" data-tilt>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Medical AI</span>
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">CNN</span>
+                        </div>
+                        <h3>Brain Tumor Classification & Segmentation</h3>
+                        <p data-i18n="proj-desc-2">Deep learning model for brain tumor classification and segmentation using CNNs, demonstrating medical imaging analysis capabilities.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Moataz899/Brain_Tumor_Classification_Segmentation" target="_blank" class="btn btn-outline btn-sm">
+                                <i class="fa-brands fa-github"></i>
+                                <span data-i18n="project-code">Code</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Twitter Sentiment Analysis -->
+                <div class="project-card" data-tilt>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">NLP</span>
+                            <span class="tag">Sentiment Analysis</span>
+                            <span class="tag">Machine Learning</span>
+                        </div>
+                        <h3 data-i18n="proj-title-3">Twitter Sentiment Analysis</h3>
+                        <p data-i18n="proj-desc-3">NLP-based sentiment analysis system for Twitter data, showcasing natural language processing and text classification skills.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Moataz899/Twitter_Sentiment_Analysis" target="_blank" class="btn btn-outline btn-sm">
+                                <i class="fa-brands fa-github"></i>
+                                <span data-i18n="project-code">Code</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Text Summarizer & QA -->
+                <div class="project-card" data-tilt>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">NLP</span>
+                            <span class="tag">Transformers</span>
+                            <span class="tag">Question Answering</span>
+                        </div>
+                        <h3>Text Summarizer & Question Answering</h3>
+                        <p data-i18n="proj-desc-4">Advanced NLP system for text summarization and question answering using transformer models and modern NLP techniques.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Moataz899/Text-Summarizer-Question-Answering" target="_blank" class="btn btn-outline btn-sm">
+                                <i class="fa-brands fa-github"></i>
+                                <span data-i18n="project-code">Code</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Hand Gesture Recognition -->
+                <div class="project-card" data-tilt>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Computer Vision</span>
+                            <span class="tag">Real-time</span>
+                            <span class="tag">Gesture Recognition</span>
+                        </div>
+                        <h3 data-i18n="proj-title-5">Real-Time Hand Gesture Recognition</h3>
+                        <p data-i18n="proj-desc-5">Real-time hand gesture recognition system using computer vision for human-computer interaction applications.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Moataz899/Real-Time-Hand-Gesture-Recognition" target="_blank" class="btn btn-outline btn-sm">
+                                <i class="fa-brands fa-github"></i>
+                                <span data-i18n="project-code">Code</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Telegram Chatbot -->
+                <div class="project-card" data-tilt>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">NLP</span>
+                            <span class="tag">Chatbot</span>
+                            <span class="tag">Automation</span>
+                        </div>
+                        <h3 data-i18n="proj-title-6">ChatBot Telegram with n8n</h3>
+                        <p data-i18n="proj-desc-6">Intelligent Telegram chatbot built with n8n automation platform, showcasing conversational AI and workflow automation.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Moataz899/ChatBot-Telegram-with-n8n" target="_blank" class="btn btn-outline btn-sm">
+                                <i class="fa-brands fa-github"></i>
+                                <span data-i18n="project-code">Code</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7: Text to Image -->
+                <div class="project-card" data-tilt>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Generative AI</span>
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">Image Generation</span>
+                        </div>
+                        <h3 data-i18n="proj-title-7">Text to Image</h3>
+                        <p data-i18n="proj-desc-7">Generative AI model for converting text descriptions to images, demonstrating cutting-edge generative AI capabilities.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Moataz899/text_to_image" target="_blank" class="btn btn-outline btn-sm">
+                                <i class="fa-brands fa-github"></i>
+                                <span data-i18n="project-code">Code</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8: Web Scraping Projects -->
+                <div class="project-card" data-tilt>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Web Scraping</span>
+                            <span class="tag">Data Engineering</span>
+                        </div>
+                        <h3 data-i18n="proj-title-8">Web Scraping Projects</h3>
+                        <p data-i18n="proj-desc-8">Collection of 7 web scrapers for books, courses, job listings, sports matches, car listings, and more. Demonstrates data extraction and processing skills.</p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-value">7</span>
+                                <span class="metric-label">Scrapers</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">2</span>
+                                <span class="metric-label">Stars</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Moataz899/Web_Scraping_Projects" target="_blank" class="btn btn-outline btn-sm">
+                                <i class="fa-brands fa-github"></i>
+                                <span data-i18n="project-code">Code</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 9: AI Agents -->
+                <div class="project-card" data-tilt>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">AI Agents</span>
+                            <span class="tag">Microsoft</span>
+                            <span class="tag">Learning</span>
+                        </div>
+                        <h3 data-i18n="proj-title-9">AI Agents for Beginners</h3>
+                        <p data-i18n="proj-desc-9">Learning repository based on Microsoft's AI Agents course, covering fundamental concepts of building AI agents and autonomous systems.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Moataz899/ai-agents-for-beginners" target="_blank" class="btn btn-outline btn-sm">
+                                <i class="fa-brands fa-github"></i>
+                                <span data-i18n="project-code">Code</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 10: QR Code Generator -->
+                <div class="project-card" data-tilt>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Image Processing</span>
+                            <span class="tag">Utility</span>
+                        </div>
+                        <h3 data-i18n="proj-title-10">QR Code Generator</h3>
+                        <p data-i18n="proj-desc-10">Python-based QR code generation system for creating customizable QR codes for various applications including URLs, text, and contact information.</p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-value">3</span>
+                                <span class="metric-label">Stars</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Moataz899/My-QR-Code" target="_blank" class="btn btn-outline btn-sm">
+                                <i class="fa-brands fa-github"></i>
+                                <span data-i18n="project-code">Code</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 11: Data Analysis -->
+                <div class="project-card" data-tilt>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Data Analysis</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Pandas</span>
+                        </div>
+                        <h3 data-i18n="proj-title-11">Data Analysis Projects</h3>
+                        <p data-i18n="proj-desc-11">Comprehensive data analysis projects demonstrating data manipulation, visualization, and statistical analysis skills using Python and Pandas.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Moataz899/Data-Analysis" target="_blank" class="btn btn-outline btn-sm">
+                                <i class="fa-brands fa-github"></i>
+                                <span data-i18n="project-code">Code</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 12: Power BI Projects -->
+                <div class="project-card" data-tilt>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Data Visualization</span>
+                            <span class="tag">Power BI</span>
+                            <span class="tag">Analytics</span>
+                        </div>
+                        <h3 data-i18n="proj-title-12">Power BI Projects</h3>
+                        <p data-i18n="proj-desc-12">Business intelligence and data visualization projects using Power BI, showcasing dashboard creation and data storytelling capabilities.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Moataz899/Power-Bi-Projects" target="_blank" class="btn btn-outline btn-sm">
+                                <i class="fa-brands fa-github"></i>
+                                <span data-i18n="project-code">Code</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-cta">
+                <a href="https://github.com/Moataz899?tab=repositories" target="_blank" class="btn btn-secondary">
+                    <span data-i18n="projects-view-all">View All Projects</span>
+                    <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle" data-i18n="skills-subtitle">Technical Skills</p>
+                <h2 class="section-title" data-i18n="skills-title">Expertise Level</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category" data-tilt>
+                    <h3 data-i18n="skill-cv">Computer Vision</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>YOLO</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>OpenCV</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>CNN</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category" data-tilt>
+                    <h3 data-i18n="skill-nlp">NLP & Transformers</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Transformers</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Sentiment Analysis</span>
+                                <span>82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 82%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Text Summarization</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category" data-tilt>
+                    <h3 data-i18n="skill-dl">Deep Learning</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>PyTorch</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>TensorFlow</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Generative AI</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category" data-tilt>
+                    <h3 data-i18n="skill-data">Data & Tools</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Python</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Pandas</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Web Scraping</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section class="certificates" id="certificates">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle" data-i18n="certificates-subtitle">Credentials</p>
+                <h2 class="section-title" data-i18n="certificates-title">Certifications</h2>
+                <p class="section-description" data-i18n="certificates-description">Professional certifications and courses completed</p>
+            </div>
+            <div class="certificates-grid" data-step-switcher data-per-page="3">
+                <!-- Certificate 1 -->
+                <div class="certificate-card" data-tilt>
+                    <div class="certificate-image">
+                        <img src="img/AI Engineering training.png" alt="AI Engineering Certificate">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>AI Engineering Training</h3>
+                        <p>Instant Software Solutions</p>
+                        <p>Excited to share that I've successfully completed my AI Engineering training at Instant Software Solutions! Specializing in Artificial Intelligence, Machine Learning, and Deep Learning</p>
+                        <span class="certificate-date">2024</span>
+                        <span class="certificate-status completed">Completed</span>
+                    </div>
+                </div>
+
+                <!-- Certificate 2 -->
+                <div class="certificate-card" data-tilt>
+                    <div class="certificate-image">
+                        <img src="img/Stanford ML.png" alt="Machine Learning Certificate">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Machine Learning</h3>
+                        <p>Coursera - Andrew Ng</p>
+                        <p>Comprehensive ML course covering supervised learning, neural networks, and practical applications</p>
+                        <span class="certificate-date">2024</span>
+                        <span class="certificate-status completed">Completed</span>
+                    </div>
+                </div>
+
+                <!-- Certificate 3 -->
+                <div class="certificate-card" data-tilt>
+                    <div class="certificate-image">
+                        <img src="img/DL For CV.png" alt="Deep Learning Certificate">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Deep Learning for Computer Vision</h3>
+                        <p>Mahara Tech</p>
+                        <p>Advanced deep learning techniques for computer vision applications and image processing</p>
+                        <span class="certificate-date">2024</span>
+                        <span class="certificate-status completed">Completed</span>
+                    </div>
+                </div>
+
+                <!-- Certificate 4 -->
+                <div class="certificate-card" data-tilt>
+                    <div class="certificate-image">
+                        <img src="img/DL For NLP.png" alt="Neural Networks Certificate">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Deep Learning for NLP</h3>
+                        <p>Mahara Tech</p>
+                        <p>Natural language processing with deep learning, including transformers and sequence models</p>
+                        <span class="certificate-date">2023</span>
+                        <span class="certificate-status completed">Completed</span>
+                    </div>
+                </div>
+
+                <!-- Certificate 5 -->
+                <div class="certificate-card" data-tilt>
+                    <div class="certificate-image">
+                        <img src="img/Python For DS and ML.png" alt="Python for Data Science Certificate">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Python for Data Science and ML</h3>
+                        <p>Udemy</p>
+                        <p>Python programming, data analysis, visualization, and machine learning fundamentals</p>
+                        <span class="certificate-date">2023</span>
+                        <span class="certificate-status completed">Completed</span>
+                    </div>
+                </div>
+
+                <!-- Certificate 6 -->
+                <div class="certificate-card" data-tilt>
+                    <div class="certificate-image">
+                        <img src="img/Kaggle Python.png" alt="Kaggle Python Certificate">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Kaggle Python</h3>
+                        <p>Kaggle</p>
+                        <p>Python programming fundamentals for data science and machine learning</p>
+                        <span class="certificate-date">2023</span>
+                        <span class="certificate-status completed">Completed</span>
+                    </div>
+                </div>
+
+                <!-- Certificate 7 -->
+                <div class="certificate-card" data-tilt>
+                    <div class="certificate-image">
+                        <img src="img/Kaggle Pandas.png" alt="Kaggle Pandas Certificate">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Kaggle Pandas</h3>
+                        <p>Kaggle</p>
+                        <p>Data manipulation and analysis using Pandas library for data science</p>
+                        <span class="certificate-date">2023</span>
+                        <span class="certificate-status completed">Completed</span>
+                    </div>
+                </div>
+
+                <!-- Certificate 8 -->
+                <div class="certificate-card" data-tilt>
+                    <div class="certificate-image">
+                        <img src="img/Ai for everyone.png" alt="AI for Everyone Certificate">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>AI for Everyone</h3>
+                        <p>Mahara Tech</p>
+                        <p>Introduction to artificial intelligence concepts and applications for non-technical audiences</p>
+                        <span class="certificate-date">2023</span>
+                        <span class="certificate-status completed">Completed</span>
+                    </div>
+                </div>
+
+                <!-- Certificate 9 -->
+                <div class="certificate-card" data-tilt>
+                    <div class="certificate-image">
+                        <img src="img/HUAWEI AI.png" alt="Huawei AI Certificate">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Huawei AI Certification</h3>
+                        <p>Huawei</p>
+                        <p>Artificial intelligence and machine learning certification from Huawei</p>
+                        <span class="certificate-date">2023</span>
+                        <span class="certificate-status completed">Completed</span>
+                    </div>
+                </div>
+
+                <!-- Certificate 10 -->
+                <div class="certificate-card" data-tilt>
+                    <div class="certificate-image">
+                        <img src="img/Sprints For Ai and ML.png" alt="Sprints AI Certificate">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Sprints for AI and ML</h3>
+                        <p>Sprints</p>
+                        <p>Intensive training program in artificial intelligence and machine learning</p>
+                        <span class="certificate-date">2023</span>
+                        <span class="certificate-status completed">Completed</span>
+                    </div>
+                </div>
+
+                <!-- Certificate 11 -->
+                <div class="certificate-card" data-tilt>
+                    <div class="certificate-image">
+                        <img src="img/Clean Code.png" alt="Clean Code Certificate">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Clean Code</h3>
+                        <p>Mahara Tech</p>
+                        <p>Best practices for writing clean, maintainable, and efficient code</p>
+                        <span class="certificate-date">2023</span>
+                        <span class="certificate-status completed">Completed</span>
+                    </div>
+                </div>
+
+                <!-- Certificate 12 -->
+                <div class="certificate-card" data-tilt>
+                    <div class="certificate-image">
+                        <img src="img/CCNA.png" alt="CCNA Certificate">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>CCNA Networking</h3>
+                        <p>Cisco</p>
+                        <p>Cisco Certified Network Associate - Networking fundamentals and infrastructure</p>
+                        <span class="certificate-date">2023</span>
+                        <span class="certificate-status completed">Completed</span>
+                    </div>
+                </div>
+
+                <!-- Certificate 13 -->
+                <div class="certificate-card" data-tilt>
+                    <div class="certificate-image">
+                        <img src="img/Device Management.png" alt="Device Management Certificate">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Device Management</h3>
+                        <p>Coursera</p>
+                        <p>IT infrastructure and device management best practices</p>
+                        <span class="certificate-date">2023</span>
+                        <span class="certificate-status completed">Completed</span>
+                    </div>
+                </div>
+
+                <!-- Certificate 14 -->
+                <div class="certificate-card" data-tilt>
+                    <div class="certificate-image">
+                        <img src="img/intro to programming.png" alt="Intro to Programming Certificate">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Introduction to Programming</h3>
+                        <p>Mahara Tech</p>
+                        <p>Fundamental programming concepts and problem-solving skills</p>
+                        <span class="certificate-date">2023</span>
+                        <span class="certificate-status completed">Completed</span>
+                    </div>
+                </div>
+
+                <!-- Certificate 15 -->
+                <div class="certificate-card" data-tilt>
+                    <div class="certificate-image">
+                        <img src="img/intro to networks.png" alt="Intro to Networks Certificate">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Introduction to Networks</h3>
+                        <p>Cisco</p>
+                        <p>Networking fundamentals, protocols, and infrastructure basics</p>
+                        <span class="certificate-date">2023</span>
+                        <span class="certificate-status completed">Completed</span>
+                    </div>
+                </div>
+
+                <!-- Certificate 16 -->
+                <div class="certificate-card" data-tilt>
+                    <div class="certificate-image">
+                        <img src="img/Kaggle intro to Programming.png" alt="Kaggle Intro to Programming Certificate">
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Kaggle Intro to Programming</h3>
+                        <p>Kaggle</p>
+                        <p>Introduction to programming concepts for data science beginners</p>
+                        <span class="certificate-date">2023</span>
+                        <span class="certificate-status completed">Completed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="section-subtitle" data-i18n="about-subtitle">About Me</p>
+                    <h2 class="section-title" data-i18n="about-title">From Curiosity to AI Engineering</h2>
+                    <p class="about-description" data-i18n="about-desc-1">
+                        My journey into AI started with a simple question: "How can machines understand and learn from the world around us?"
+                    </p>
+                    <p class="about-description" data-i18n="about-desc-2">
+                        That curiosity led me from experimenting with basic neural networks to building production-ready AI systems that solve real-world problems. Along the way, I've developed expertise in computer vision, natural language processing, and deep learning.
+                    </p>
+                    <p class="about-description" data-i18n="about-desc-3">
+                        Today, I specialize in building intelligent systems that make a difference — from detecting license plates in parking lots to generating educational content using large language models.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight">
+                            <span class="highlight-number">3+</span>
+                            <span class="highlight-label" data-i18n="about-years">Years Experience</span>
+                        </div>
+                        <div class="highlight">
+                            <span class="highlight-number">10+</span>
+                            <span class="highlight-label" data-i18n="about-models">Production Models</span>
+                        </div>
+                        <div class="highlight">
+                            <span class="highlight-number">30+</span>
+                            <span class="highlight-label" data-i18n="about-projects">Projects Completed</span>
+                        </div>
+                        <div class="highlight">
+                            <span class="highlight-number">11000+</span>
+                            <span class="highlight-label" data-i18n="about-followers">LinkedIn Followers</span>
+                        </div>
+                    </div>
+                    <div class="about-cta">
+                        <a href="#contact" class="btn btn-primary">
+                            <span data-i18n="about-cta">Get In Touch</span>
+                            <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="about-image">
+                        <img src="img/moataz2.jpg" alt="Moataz Abdelraouf" class="about-photo about-photo-float">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle" data-i18n="contact-subtitle">Get In Touch</p>
+                <h2 class="section-title" data-i18n="contact-title">Let's Build Something Amazing</h2>
+                <p class="section-description">I'm always interested in hearing about new projects and opportunities</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 data-i18n="contact-email-label">Email</h3>
+                            <a href="mailto:abdelraoufdahy@gmail.com">abdelraoufdahy@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 data-i18n="contact-linkedin-label">LinkedIn</h3>
+                            <a href="https://www.linkedin.com/in/moataz-abdelraouf-390429290" target="_blank">linkedin.com/in/moataz-abdelraouf-390429290</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-brands fa-github"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 data-i18n="contact-github-label">GitHub</h3>
+                            <a href="https://github.com/Moataz899" target="_blank">github.com/Moataz899</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 data-i18n="contact-whatsapp-label">WhatsApp</h3>
+                            <a href="https://wa.me/0102179796" target="_blank" data-i18n="contact-whatsapp-text">Chat on WhatsApp</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 data-i18n="contact-location-label">Location</h3>
+                            <span data-i18n="contact-location-text">Cairo, Egypt (UTC+2)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" data-i18n-placeholder="contact-name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" data-i18n-placeholder="contact-email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" data-i18n-placeholder="contact-subject" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea data-i18n-placeholder="contact-message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <span data-i18n="contact-send">Send Message</span>
+                            <i class="fa-solid fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">MOATAZ DAHY</span>
+                    <p data-i18n="footer-tagline">Building Intelligent Systems That Transform Industries</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/moataz-abdelraouf-390429290" target="_blank" class="social-link">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/Moataz899" target="_blank" class="social-link">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="mailto:abdelraoufdahy@gmail.com" class="social-link">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer-copyright">&copy; 2024 Moataz Abdelraouf. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
     <script src="main.js"></script>
+    <script src="step-switcher.js"></script>
+    <script src="hero-typing.js"></script>
+    <script src="card-tilt.js"></script>
 </body>
 </html>

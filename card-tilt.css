@@ -1,0 +1,54 @@
+/* ===================================
+   CARD 3D TILT + MOUSE GLOW EFFECT
+   Add this file to your project and
+   link it in index.htm AFTER style.css
+   =================================== */
+
+[data-tilt] {
+    position: relative;
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.4s ease;
+}
+
+/* While the pointer is actively moving over the card, we disable the
+   transform transition so the tilt tracks the cursor instantly.
+   It's re-enabled on mouseleave so the card eases back smoothly. */
+[data-tilt].is-tilting {
+    transition: box-shadow 0.4s ease;
+}
+
+/* Mouse-tracking radial glow, sits behind the card content but above
+   the card's own background (negative z-index within this stacking
+   context achieves that without needing to touch existing markup). */
+[data-tilt]::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: radial-gradient(
+        circle at var(--mx, 50%) var(--my, 50%),
+        rgba(143, 168, 122, 0.28),
+        transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+[data-tilt]:hover::before,
+[data-tilt].is-tilting::before {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    /* Tilt relies on a precise mouse pointer; skip it on touch screens */
+    [data-tilt] {
+        transform: none !important;
+    }
+    [data-tilt]::before {
+        display: none;
+    }
+}

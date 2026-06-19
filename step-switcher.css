@@ -1,0 +1,150 @@
+/* ===================================
+   NUMBERED STEP SWITCHER COMPONENT
+   Add this file to your project and
+   link it in index.htm AFTER style.css
+   =================================== */
+
+.step-switcher-wrap {
+    display: flex;
+    justify-content: center;
+    margin: var(--space-10) 0 var(--space-4);
+}
+
+.step-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px;
+    border-radius: 999px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+}
+
+.step-switcher__btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    background: transparent;
+    color: var(--color-text-secondary);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.25s ease;
+}
+
+.step-switcher__btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-text-primary);
+    transform: translateY(-1px);
+}
+
+.step-switcher__btn:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Active circle: gradient fill + glow, same size as the rest — matches reference screenshot */
+.step-switcher__btn.is-active {
+    color: #0d0f12;
+    border-color: transparent;
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-glow);
+    animation: stepBtnPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes stepBtnPop {
+    from {
+        transform: scale(0.85);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.step-switcher__btn.is-active::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.55), transparent 60%);
+    pointer-events: none;
+}
+
+.step-switcher__btn span {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===================================
+   PAGINATED GRID PANELS
+   =================================== */
+
+.step-panels {
+    position: relative;
+}
+
+.step-panel {
+    animation: none;
+}
+
+.step-panel.is-active {
+    animation: stepFadeIn 0.5s ease forwards;
+}
+
+/* Stagger each card inside the active panel for a nicer reveal */
+.step-panel.is-active > * {
+    opacity: 0;
+    animation: stepCardIn 0.5s ease forwards;
+}
+
+.step-panel.is-active > *:nth-child(1) { animation-delay: 0.04s; }
+.step-panel.is-active > *:nth-child(2) { animation-delay: 0.1s; }
+.step-panel.is-active > *:nth-child(3) { animation-delay: 0.16s; }
+.step-panel.is-active > *:nth-child(4) { animation-delay: 0.22s; }
+.step-panel.is-active > *:nth-child(5) { animation-delay: 0.28s; }
+.step-panel.is-active > *:nth-child(6) { animation-delay: 0.34s; }
+
+@keyframes stepCardIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes stepFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Each panel reuses the existing grid classes (.expertise-grid,
+   .projects-grid, .certificates-grid) so card styling is untouched —
+   we only wrap chunks of cards into panels. */
+
+@media (max-width: 480px) {
+    .step-switcher__btn {
+        width: 38px;
+        height: 38px;
+    }
+}
