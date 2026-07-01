@@ -1,9 +1,3 @@
-/* ===================================
-   NUMBERED STEP SWITCHER COMPONENT
-   Add this file to your project and
-   link it in index.htm AFTER style.css
-   =================================== */
-
 .step-switcher-wrap {
     display: flex;
     justify-content: center;
@@ -55,7 +49,6 @@
     outline-offset: 2px;
 }
 
-/* Active circle: gradient fill + glow, same size as the rest — matches reference screenshot */
 .step-switcher__btn.is-active {
     color: #0d0f12;
     border-color: transparent;
@@ -87,10 +80,6 @@
     z-index: 1;
 }
 
-/* ===================================
-   PAGINATED GRID PANELS
-   =================================== */
-
 .step-panels {
     position: relative;
 }
@@ -103,7 +92,6 @@
     animation: stepFadeIn 0.5s ease forwards;
 }
 
-/* Stagger each card inside the active panel for a nicer reveal */
 .step-panel.is-active > * {
     opacity: 0;
     animation: stepCardIn 0.5s ease forwards;
@@ -137,10 +125,6 @@
         transform: translateY(0);
     }
 }
-
-/* Each panel reuses the existing grid classes (.expertise-grid,
-   .projects-grid, .certificates-grid) so card styling is untouched —
-   we only wrap chunks of cards into panels. */
 
 @media (max-width: 480px) {
     .step-switcher__btn {

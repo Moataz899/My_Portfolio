@@ -1,19 +1,19 @@
-// ===================================
-// REDESIGNED PORTFOLIO JAVASCRIPT
-// Enhanced interactivity and animations
-// ===================================
+﻿
+
+
+
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Theme functionality
+
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = themeToggle.querySelector('i');
     
-    // Check for saved theme preference or default to dark
+
     const savedTheme = localStorage.getItem('theme') || 'dark';
     document.documentElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
     
-    // Theme toggle functionality
+
     themeToggle.addEventListener('click', function() {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
@@ -33,11 +33,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Language toggle functionality
+
     const langToggle = document.getElementById('lang-toggle');
     const langText = langToggle.querySelector('span');
     
-    // Translation dictionary
+
     const translations = {
         en: {
             'nav-home': 'Home',
@@ -53,6 +53,10 @@ document.addEventListener('DOMContentLoaded', function() {
             'hero-description': 'Hello, I\'m Moataz Dahy Abdelraouf, an AI Engineer specializing in Machine Learning, Computer Vision, NLP, Generative AI, RAG Systems, Agentic AI, and Intelligent Automation.',
             'hero-view-work': 'View My Work',
             'hero-download-cv': 'Download CV',
+            'cv-modal-title': 'Curriculum Vitae (CV)',
+            'cv-modal-subtitle': "Viewing and downloading Moataz Dahy's Resume. Thank you for your interest!",
+            'cv-download-btn': 'DOWNLOAD',
+            'cv-fallback-text': 'PDF preview not supported in your browser.',
             'hero-lets-talk': 'Let\'s Talk',
             'expertise-subtitle': 'What I Do',
             'expertise-title': 'AI Expertise',
@@ -112,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'about-title': 'From Curiosity to AI Engineering',
             'about-desc-1': 'My journey into AI started with a simple question: "How can machines understand and learn from the world around us?"',
             'about-desc-2': 'That curiosity led me from experimenting with basic neural networks to building production-ready AI systems that solve real-world problems. Along the way, I\'ve developed expertise in computer vision, natural language processing, and deep learning.',
-            'about-desc-3': 'Today, I specialize in building intelligent systems that make a difference — from detecting license plates in parking lots to generating educational content using large language models.',
+            'about-desc-3': 'Today, I specialize in building intelligent systems that make a difference â€” from detecting license plates in parking lots to generating educational content using large language models.',
             'about-years': 'Years Experience',
             'about-models': 'Production Models',
             'about-projects': 'Projects Completed',
@@ -132,110 +136,114 @@ document.addEventListener('DOMContentLoaded', function() {
             'contact-subject': 'Subject',
             'contact-message': 'Your Message',
             'contact-send': 'Send Message',
-            'footer-copyright': '© 2024 Moataz Abdelraouf. All rights reserved.',
+            'footer-copyright': 'Â© 2024 Moataz Abdelraouf. All rights reserved.',
             'footer-tagline': 'Building Intelligent Systems That Transform Industries'
         },
         ar: {
-            'nav-home': 'الرئيسية',
-            'nav-about': 'عني',
-            'nav-projects': 'المشاريع',
-            'nav-skills': 'المهارات',
-            'nav-certificates': 'الشهادات',
-            'nav-contact': 'تواصل معي',
-            'nav-resume': 'السيرة الذاتية',
-            'hero-role-prefix': 'أنا',
-            'hero-title-1': 'بناء أنظمة ذكية',
-            'hero-title-2': 'تحول الصناعات',
-            'hero-description': 'مرحباً، أنا معتز ضحي عبد الرؤوف، مهندس ذكاء اصطناعي متخصص في تعلم الآلة، الرؤية الحاسوبية، معالجة اللغات الطبيعية، الذكاء الاصطناعي التوليدي، أنظمة RAG، الذكاء الاصطناعي الوكيل، والأتمتة الذكية.',
-            'hero-view-work': 'شاهد أعمالي',
-            'hero-download-cv': 'تحميل السيرة الذاتية',
-            'hero-lets-talk': 'لنتحدث',
-            'expertise-subtitle': 'ما أفعله',
-            'expertise-title': 'خبرة الذكاء الاصطناعي',
-            'expertise-ml': 'تعلم الآلة',
-            'expertise-ml-desc': 'التعلم تحت الإشراف وبدون إشراف، هندسة الميزات، وتقييم النماذج للتحليلات التنبؤية.',
-            'expertise-dl': 'التعلم العميق',
-            'expertise-dl-desc': 'الشبكات العصبية التلافيفية والمتكررة وآليات الانتباه لتمييز الأنماط المعقدة ومهام التنبؤ.',
-            'expertise-cv': 'الرؤية الحاسوبية',
-            'expertise-cv-desc': 'كشف الأجسام، تصنيف الصور، وتحليل الفيديو باستخدام YOLO و OpenCV ومحولات الرؤية.',
-            'expertise-nlp': 'معالجة اللغات الطبيعية',
-            'expertise-nlp-desc': 'توليد النصوص، تحليل المشاعر، ومعالجة المستندات باستخدام المحولات و BERT و GPT.',
-            'expertise-genai': 'الذكاء الاصطناعي التوليدي',
-            'expertise-genai-desc': 'نماذج اللغات الكبيرة، توليد الصور، وإنشاء المحتوى باستخدام تقنيات الذكاء الاصطناعي المتطورة.',
-            'expertise-rag': 'أنظمة RAG',
-            'expertise-rag-desc': 'التوليد المعزز بالاسترجاع لبناء تطبيقات الذكاء الاصطناعي المدركة للمعرفة باستجابات دقيقة وسياقية.',
-            'expertise-agentic': 'الذكاء الاصطناعي الوكيل',
-            'expertise-agentic-desc': 'وكلاء الذكاء الاصطناعي المستقلون الذين يمكنهم التفكير والتخطيط وتنفيذ المهام المعقدة بشكل مستقل مع إشراف بشري.',
-            'projects-subtitle': 'أعمالي',
-            'projects-title': 'المشاريع المميزة',
-            'projects-description': 'بناء حلول الذكاء الاصطناعي التي تحل المشكلات الواقعية',
-            'projects-view-all': 'عرض جميع المشاريع',
-            'project-code': 'الكود',
-            'proj-title-1': 'كشف لوحات السيارات',
-            'proj-desc-1': 'نظام كشف لوحات السيارات في الوقت الفعلي باستخدام تقنيات الرؤية الحاسوبية لتحديد المركبات آليًا وإدارة مواقف السيارات.',
-            'proj-title-2': 'تصنيف وتقسيم أورام الدماغ',
-            'proj-desc-2': 'نموذج تعلم عميق لتصنيف وتقسيم أورام الدماغ باستخدام الشبكات العصبية التلافيفية، يُظهر قدرات تحليل الصور الطبية.',
-            'proj-title-3': 'تحليل مشاعر تويتر',
-            'proj-desc-3': 'نظام تحليل مشاعر قائم على معالجة اللغات الطبيعية لبيانات تويتر، يُظهر مهارات معالجة اللغة الطبيعية وتصنيف النصوص.',
-            'proj-title-4': 'تلخيص النصوص والإجابة على الأسئلة',
-            'proj-desc-4': 'نظام معالجة لغات طبيعية متقدم لتلخيص النصوص والإجابة على الأسئلة باستخدام نماذج المحولات وتقنيات NLP الحديثة.',
-            'proj-title-5': 'التعرف على إيماءات اليد في الوقت الفعلي',
-            'proj-desc-5': 'نظام التعرف على إيماءات اليد في الوقت الفعلي باستخدام الرؤية الحاسوبية لتطبيقات التفاعل بين الإنسان والحاسوب.',
-            'proj-title-6': 'روبوت محادثة تيليغرام مع n8n',
-            'proj-desc-6': 'روبوت محادثة ذكي على تيليغرام مبني بمنصة أتمتة n8n، يُظهر الذكاء الاصطناعي للمحادثة وأتمتة سير العمل.',
-            'proj-title-7': 'تحويل النص إلى صورة',
-            'proj-desc-7': 'نموذج ذكاء اصطناعي توليدي لتحويل الأوصاف النصية إلى صور، يُظهر أحدث قدرات الذكاء الاصطناعي التوليدي.',
-            'proj-title-8': 'مشاريع استخراج الويب',
-            'proj-desc-8': 'مجموعة من 7 أدوات استخراج للكتب والدورات وقوائم الوظائف والمباريات الرياضية وقوائم السيارات وغيرها، تُظهر مهارات استخراج البيانات ومعالجتها.',
-            'proj-title-9': 'وكلاء الذكاء الاصطناعي للمبتدئين',
-            'proj-desc-9': 'مستودع تعليمي مبني على دورة Microsoft لوكلاء الذكاء الاصطناعي، يغطي المفاهيم الأساسية لبناء وكلاء الذكاء الاصطناعي والأنظمة المستقلة.',
-            'proj-title-10': 'مولد رمز QR',
-            'proj-desc-10': 'نظام توليد رموز QR مبني على Python لإنشاء رموز QR قابلة للتخصيص لتطبيقات متنوعة تشمل الروابط والنصوص ومعلومات الاتصال.',
-            'proj-title-11': 'مشاريع تحليل البيانات',
-            'proj-desc-11': 'مشاريع تحليل بيانات شاملة تُظهر مهارات معالجة البيانات والتصور والتحليل الإحصائي باستخدام Python وPandas.',
-            'proj-title-12': 'مشاريع Power BI',
-            'proj-desc-12': 'مشاريع ذكاء أعمال وتصور بيانات باستخدام Power BI، تُظهر إنشاء لوحات البيانات وسرد قصص البيانات.',
-            'skills-subtitle': 'المهارات التقنية',
-            'skills-title': 'مستوى الخبرة',
-            'skill-cv': 'الرؤية الحاسوبية',
-            'skill-nlp': 'معالجة اللغات والمحولات',
-            'skill-dl': 'التعلم العميق',
-            'skill-data': 'البيانات والأدوات',
-            'certificates-subtitle': 'الاعتمادات',
-            'certificates-title': 'الشهادات',
-            'certificates-description': 'الشهادات والدورات المهنية المكتملة',
-            'about-subtitle': 'عني',
-            'about-title': 'من الفضول إلى هندسة الذكاء الاصطناعي',
-            'about-desc-1': 'بدأت رحلتي في الذكاء الاصطناعي بسؤال بسيط: "كيف يمكن للآلات أن تفهم وتتعلم من العالم من حولنا؟"',
-            'about-desc-2': 'قادني هذا الفضول من تجربة الشبكات العصبية الأساسية إلى بناء أنظمة ذكاء اصطناعي جاهزة للإنتاج تحل مشكلات واقعية. على طول الطريق، طورت خبرة في الرؤية الحاسوبية ومعالجة اللغات الطبيعية والتعلم العميق.',
-            'about-desc-3': 'اليوم، أتخصص في بناء أنظمة ذكية تحدث فرقاً - من كشف لوحات السيارات في مواقف السيارات إلى توليد محتوى تعليمي باستخدام نماذج اللغات الكبيرة.',
-            'about-years': 'سنوات الخبرة',
-            'about-models': 'نماذج الإنتاج',
-            'about-projects': 'المشاريع المكتملة',
-            'about-followers': 'متابعي لينكد إن',
-            'about-cta': 'تواصل معي',
-            'contact-subtitle': 'تواصل معي',
-            'contact-title': 'لنبني شيئاً مذهلاً',
-            'contact-email-label': 'البريد الإلكتروني',
-            'contact-linkedin-label': 'لينكد إن',
-            'contact-github-label': 'جيت هب',
-            'contact-whatsapp-label': 'واتساب',
-            'contact-location-label': 'الموقع',
-            'contact-location-text': 'القاهرة، مصر (ت ع م+٢)',
-            'contact-whatsapp-text': 'دردشة على واتساب',
-            'contact-name': 'اسمك',
-            'contact-email': 'بريدك الإلكتروني',
-            'contact-subject': 'الموضوع',
-            'contact-message': 'رسالتك',
-            'contact-send': 'إرسال الرسالة',
-            'footer-copyright': '© ٢٠٢٤ معتز عبد الرؤوف. جميع الحقوق محفوظة.',
-            'footer-tagline': 'بناء أنظمة ذكية تحول الصناعات'
+            'nav-home': 'Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©',
+            'nav-about': 'Ø¹Ù†ÙŠ',
+            'nav-projects': 'Ø§Ù„Ù…Ø´Ø§Ø±ÙŠØ¹',
+            'nav-skills': 'Ø§Ù„Ù…Ù‡Ø§Ø±Ø§Øª',
+            'nav-certificates': 'Ø§Ù„Ø´Ù‡Ø§Ø¯Ø§Øª',
+            'nav-contact': 'ØªÙˆØ§ØµÙ„ Ù…Ø¹ÙŠ',
+            'nav-resume': 'Ø§Ù„Ø³ÙŠØ±Ø© Ø§Ù„Ø°Ø§ØªÙŠØ©',
+            'hero-role-prefix': 'Ø£Ù†Ø§',
+            'hero-title-1': 'Ø¨Ù†Ø§Ø¡ Ø£Ù†Ø¸Ù…Ø© Ø°ÙƒÙŠØ©',
+            'hero-title-2': 'ØªØ­ÙˆÙ„ Ø§Ù„ØµÙ†Ø§Ø¹Ø§Øª',
+            'hero-description': 'Ù…Ø±Ø­Ø¨Ø§Ù‹ØŒ Ø£Ù†Ø§ Ù…Ø¹ØªØ² Ø¶Ø­ÙŠ Ø¹Ø¨Ø¯ Ø§Ù„Ø±Ø¤ÙˆÙØŒ Ù…Ù‡Ù†Ø¯Ø³ Ø°ÙƒØ§Ø¡ Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ù…ØªØ®ØµØµ ÙÙŠ ØªØ¹Ù„Ù… Ø§Ù„Ø¢Ù„Ø©ØŒ Ø§Ù„Ø±Ø¤ÙŠØ© Ø§Ù„Ø­Ø§Ø³ÙˆØ¨ÙŠØ©ØŒ Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ù„ØºØ§Øª Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠØ©ØŒ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ø§Ù„ØªÙˆÙ„ÙŠØ¯ÙŠØŒ Ø£Ù†Ø¸Ù…Ø© RAGØŒ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ø§Ù„ÙˆÙƒÙŠÙ„ØŒ ÙˆØ§Ù„Ø£ØªÙ…ØªØ© Ø§Ù„Ø°ÙƒÙŠØ©.',
+            'hero-view-work': 'Ø´Ø§Ù‡Ø¯ Ø£Ø¹Ù…Ø§Ù„ÙŠ',
+            'hero-download-cv': 'ØªØ­Ù…ÙŠÙ„ Ø§Ù„Ø³ÙŠØ±Ø© Ø§Ù„Ø°Ø§ØªÙŠØ©',
+            'cv-modal-title': 'Ø§Ù„Ø³ÙŠØ±Ø© Ø§Ù„Ø°Ø§ØªÙŠØ© (CV)',
+            'cv-modal-subtitle': 'Ø¹Ø±Ø¶ ÙˆØªØ­Ù…ÙŠÙ„ Ø§Ù„Ø³ÙŠØ±Ø© Ø§Ù„Ø°Ø§ØªÙŠØ© Ù„Ù…Ø¹ØªØ² Ø¯Ø§Ù‡ÙŠ. Ø´ÙƒØ±Ø§Ù‹ Ù„Ø§Ù‡ØªÙ…Ø§Ù…Ùƒ!',
+            'cv-download-btn': 'ØªØ­Ù…ÙŠÙ„',
+            'cv-fallback-text': 'Ù…Ø¹Ø§ÙŠÙ†Ø© PDF ØºÙŠØ± Ù…Ø¯Ø¹ÙˆÙ…Ø© ÙÙŠ Ù…ØªØµÙØ­Ùƒ.',
+            'hero-lets-talk': 'Ù„Ù†ØªØ­Ø¯Ø«',
+            'expertise-subtitle': 'Ù…Ø§ Ø£ÙØ¹Ù„Ù‡',
+            'expertise-title': 'Ø®Ø¨Ø±Ø© Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ',
+            'expertise-ml': 'ØªØ¹Ù„Ù… Ø§Ù„Ø¢Ù„Ø©',
+            'expertise-ml-desc': 'Ø§Ù„ØªØ¹Ù„Ù… ØªØ­Øª Ø§Ù„Ø¥Ø´Ø±Ø§Ù ÙˆØ¨Ø¯ÙˆÙ† Ø¥Ø´Ø±Ø§ÙØŒ Ù‡Ù†Ø¯Ø³Ø© Ø§Ù„Ù…ÙŠØ²Ø§ØªØŒ ÙˆØªÙ‚ÙŠÙŠÙ… Ø§Ù„Ù†Ù…Ø§Ø°Ø¬ Ù„Ù„ØªØ­Ù„ÙŠÙ„Ø§Øª Ø§Ù„ØªÙ†Ø¨Ø¤ÙŠØ©.',
+            'expertise-dl': 'Ø§Ù„ØªØ¹Ù„Ù… Ø§Ù„Ø¹Ù…ÙŠÙ‚',
+            'expertise-dl-desc': 'Ø§Ù„Ø´Ø¨ÙƒØ§Øª Ø§Ù„Ø¹ØµØ¨ÙŠØ© Ø§Ù„ØªÙ„Ø§ÙÙŠÙÙŠØ© ÙˆØ§Ù„Ù…ØªÙƒØ±Ø±Ø© ÙˆØ¢Ù„ÙŠØ§Øª Ø§Ù„Ø§Ù†ØªØ¨Ø§Ù‡ Ù„ØªÙ…ÙŠÙŠØ² Ø§Ù„Ø£Ù†Ù…Ø§Ø· Ø§Ù„Ù…Ø¹Ù‚Ø¯Ø© ÙˆÙ…Ù‡Ø§Ù… Ø§Ù„ØªÙ†Ø¨Ø¤.',
+            'expertise-cv': 'Ø§Ù„Ø±Ø¤ÙŠØ© Ø§Ù„Ø­Ø§Ø³ÙˆØ¨ÙŠØ©',
+            'expertise-cv-desc': 'ÙƒØ´Ù Ø§Ù„Ø£Ø¬Ø³Ø§Ù…ØŒ ØªØµÙ†ÙŠÙ Ø§Ù„ØµÙˆØ±ØŒ ÙˆØªØ­Ù„ÙŠÙ„ Ø§Ù„ÙÙŠØ¯ÙŠÙˆ Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… YOLO Ùˆ OpenCV ÙˆÙ…Ø­ÙˆÙ„Ø§Øª Ø§Ù„Ø±Ø¤ÙŠØ©.',
+            'expertise-nlp': 'Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ù„ØºØ§Øª Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠØ©',
+            'expertise-nlp-desc': 'ØªÙˆÙ„ÙŠØ¯ Ø§Ù„Ù†ØµÙˆØµØŒ ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ù…Ø´Ø§Ø¹Ø±ØŒ ÙˆÙ…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ù…Ø³ØªÙ†Ø¯Ø§Øª Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„Ù…Ø­ÙˆÙ„Ø§Øª Ùˆ BERT Ùˆ GPT.',
+            'expertise-genai': 'Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ø§Ù„ØªÙˆÙ„ÙŠØ¯ÙŠ',
+            'expertise-genai-desc': 'Ù†Ù…Ø§Ø°Ø¬ Ø§Ù„Ù„ØºØ§Øª Ø§Ù„ÙƒØ¨ÙŠØ±Ø©ØŒ ØªÙˆÙ„ÙŠØ¯ Ø§Ù„ØµÙˆØ±ØŒ ÙˆØ¥Ù†Ø´Ø§Ø¡ Ø§Ù„Ù…Ø­ØªÙˆÙ‰ Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… ØªÙ‚Ù†ÙŠØ§Øª Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ø§Ù„Ù…ØªØ·ÙˆØ±Ø©.',
+            'expertise-rag': 'Ø£Ù†Ø¸Ù…Ø© RAG',
+            'expertise-rag-desc': 'Ø§Ù„ØªÙˆÙ„ÙŠØ¯ Ø§Ù„Ù…Ø¹Ø²Ø² Ø¨Ø§Ù„Ø§Ø³ØªØ±Ø¬Ø§Ø¹ Ù„Ø¨Ù†Ø§Ø¡ ØªØ·Ø¨ÙŠÙ‚Ø§Øª Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ø§Ù„Ù…Ø¯Ø±ÙƒØ© Ù„Ù„Ù…Ø¹Ø±ÙØ© Ø¨Ø§Ø³ØªØ¬Ø§Ø¨Ø§Øª Ø¯Ù‚ÙŠÙ‚Ø© ÙˆØ³ÙŠØ§Ù‚ÙŠØ©.',
+            'expertise-agentic': 'Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ø§Ù„ÙˆÙƒÙŠÙ„',
+            'expertise-agentic-desc': 'ÙˆÙƒÙ„Ø§Ø¡ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ø§Ù„Ù…Ø³ØªÙ‚Ù„ÙˆÙ† Ø§Ù„Ø°ÙŠÙ† ÙŠÙ…ÙƒÙ†Ù‡Ù… Ø§Ù„ØªÙÙƒÙŠØ± ÙˆØ§Ù„ØªØ®Ø·ÙŠØ· ÙˆØªÙ†ÙÙŠØ° Ø§Ù„Ù…Ù‡Ø§Ù… Ø§Ù„Ù…Ø¹Ù‚Ø¯Ø© Ø¨Ø´ÙƒÙ„ Ù…Ø³ØªÙ‚Ù„ Ù…Ø¹ Ø¥Ø´Ø±Ø§Ù Ø¨Ø´Ø±ÙŠ.',
+            'projects-subtitle': 'Ø£Ø¹Ù…Ø§Ù„ÙŠ',
+            'projects-title': 'Ø§Ù„Ù…Ø´Ø§Ø±ÙŠØ¹ Ø§Ù„Ù…Ù…ÙŠØ²Ø©',
+            'projects-description': 'Ø¨Ù†Ø§Ø¡ Ø­Ù„ÙˆÙ„ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ø§Ù„ØªÙŠ ØªØ­Ù„ Ø§Ù„Ù…Ø´ÙƒÙ„Ø§Øª Ø§Ù„ÙˆØ§Ù‚Ø¹ÙŠØ©',
+            'projects-view-all': 'Ø¹Ø±Ø¶ Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…Ø´Ø§Ø±ÙŠØ¹',
+            'project-code': 'Ø§Ù„ÙƒÙˆØ¯',
+            'proj-title-1': 'ÙƒØ´Ù Ù„ÙˆØ­Ø§Øª Ø§Ù„Ø³ÙŠØ§Ø±Ø§Øª',
+            'proj-desc-1': 'Ù†Ø¸Ø§Ù… ÙƒØ´Ù Ù„ÙˆØ­Ø§Øª Ø§Ù„Ø³ÙŠØ§Ø±Ø§Øª ÙÙŠ Ø§Ù„ÙˆÙ‚Øª Ø§Ù„ÙØ¹Ù„ÙŠ Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… ØªÙ‚Ù†ÙŠØ§Øª Ø§Ù„Ø±Ø¤ÙŠØ© Ø§Ù„Ø­Ø§Ø³ÙˆØ¨ÙŠØ© Ù„ØªØ­Ø¯ÙŠØ¯ Ø§Ù„Ù…Ø±ÙƒØ¨Ø§Øª Ø¢Ù„ÙŠÙ‹Ø§ ÙˆØ¥Ø¯Ø§Ø±Ø© Ù…ÙˆØ§Ù‚Ù Ø§Ù„Ø³ÙŠØ§Ø±Ø§Øª.',
+            'proj-title-2': 'ØªØµÙ†ÙŠÙ ÙˆØªÙ‚Ø³ÙŠÙ… Ø£ÙˆØ±Ø§Ù… Ø§Ù„Ø¯Ù…Ø§Øº',
+            'proj-desc-2': 'Ù†Ù…ÙˆØ°Ø¬ ØªØ¹Ù„Ù… Ø¹Ù…ÙŠÙ‚ Ù„ØªØµÙ†ÙŠÙ ÙˆØªÙ‚Ø³ÙŠÙ… Ø£ÙˆØ±Ø§Ù… Ø§Ù„Ø¯Ù…Ø§Øº Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„Ø´Ø¨ÙƒØ§Øª Ø§Ù„Ø¹ØµØ¨ÙŠØ© Ø§Ù„ØªÙ„Ø§ÙÙŠÙÙŠØ©ØŒ ÙŠÙØ¸Ù‡Ø± Ù‚Ø¯Ø±Ø§Øª ØªØ­Ù„ÙŠÙ„ Ø§Ù„ØµÙˆØ± Ø§Ù„Ø·Ø¨ÙŠØ©.',
+            'proj-title-3': 'ØªØ­Ù„ÙŠÙ„ Ù…Ø´Ø§Ø¹Ø± ØªÙˆÙŠØªØ±',
+            'proj-desc-3': 'Ù†Ø¸Ø§Ù… ØªØ­Ù„ÙŠÙ„ Ù…Ø´Ø§Ø¹Ø± Ù‚Ø§Ø¦Ù… Ø¹Ù„Ù‰ Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ù„ØºØ§Øª Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠØ© Ù„Ø¨ÙŠØ§Ù†Ø§Øª ØªÙˆÙŠØªØ±ØŒ ÙŠÙØ¸Ù‡Ø± Ù…Ù‡Ø§Ø±Ø§Øª Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ù„ØºØ© Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠØ© ÙˆØªØµÙ†ÙŠÙ Ø§Ù„Ù†ØµÙˆØµ.',
+            'proj-title-4': 'ØªÙ„Ø®ÙŠØµ Ø§Ù„Ù†ØµÙˆØµ ÙˆØ§Ù„Ø¥Ø¬Ø§Ø¨Ø© Ø¹Ù„Ù‰ Ø§Ù„Ø£Ø³Ø¦Ù„Ø©',
+            'proj-desc-4': 'Ù†Ø¸Ø§Ù… Ù…Ø¹Ø§Ù„Ø¬Ø© Ù„ØºØ§Øª Ø·Ø¨ÙŠØ¹ÙŠØ© Ù…ØªÙ‚Ø¯Ù… Ù„ØªÙ„Ø®ÙŠØµ Ø§Ù„Ù†ØµÙˆØµ ÙˆØ§Ù„Ø¥Ø¬Ø§Ø¨Ø© Ø¹Ù„Ù‰ Ø§Ù„Ø£Ø³Ø¦Ù„Ø© Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ù†Ù…Ø§Ø°Ø¬ Ø§Ù„Ù…Ø­ÙˆÙ„Ø§Øª ÙˆØªÙ‚Ù†ÙŠØ§Øª NLP Ø§Ù„Ø­Ø¯ÙŠØ«Ø©.',
+            'proj-title-5': 'Ø§Ù„ØªØ¹Ø±Ù Ø¹Ù„Ù‰ Ø¥ÙŠÙ…Ø§Ø¡Ø§Øª Ø§Ù„ÙŠØ¯ ÙÙŠ Ø§Ù„ÙˆÙ‚Øª Ø§Ù„ÙØ¹Ù„ÙŠ',
+            'proj-desc-5': 'Ù†Ø¸Ø§Ù… Ø§Ù„ØªØ¹Ø±Ù Ø¹Ù„Ù‰ Ø¥ÙŠÙ…Ø§Ø¡Ø§Øª Ø§Ù„ÙŠØ¯ ÙÙŠ Ø§Ù„ÙˆÙ‚Øª Ø§Ù„ÙØ¹Ù„ÙŠ Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ø§Ù„Ø±Ø¤ÙŠØ© Ø§Ù„Ø­Ø§Ø³ÙˆØ¨ÙŠØ© Ù„ØªØ·Ø¨ÙŠÙ‚Ø§Øª Ø§Ù„ØªÙØ§Ø¹Ù„ Ø¨ÙŠÙ† Ø§Ù„Ø¥Ù†Ø³Ø§Ù† ÙˆØ§Ù„Ø­Ø§Ø³ÙˆØ¨.',
+            'proj-title-6': 'Ø±ÙˆØ¨ÙˆØª Ù…Ø­Ø§Ø¯Ø«Ø© ØªÙŠÙ„ÙŠØºØ±Ø§Ù… Ù…Ø¹ n8n',
+            'proj-desc-6': 'Ø±ÙˆØ¨ÙˆØª Ù…Ø­Ø§Ø¯Ø«Ø© Ø°ÙƒÙŠ Ø¹Ù„Ù‰ ØªÙŠÙ„ÙŠØºØ±Ø§Ù… Ù…Ø¨Ù†ÙŠ Ø¨Ù…Ù†ØµØ© Ø£ØªÙ…ØªØ© n8nØŒ ÙŠÙØ¸Ù‡Ø± Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ù„Ù„Ù…Ø­Ø§Ø¯Ø«Ø© ÙˆØ£ØªÙ…ØªØ© Ø³ÙŠØ± Ø§Ù„Ø¹Ù…Ù„.',
+            'proj-title-7': 'ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ù†Øµ Ø¥Ù„Ù‰ ØµÙˆØ±Ø©',
+            'proj-desc-7': 'Ù†Ù…ÙˆØ°Ø¬ Ø°ÙƒØ§Ø¡ Ø§ØµØ·Ù†Ø§Ø¹ÙŠ ØªÙˆÙ„ÙŠØ¯ÙŠ Ù„ØªØ­ÙˆÙŠÙ„ Ø§Ù„Ø£ÙˆØµØ§Ù Ø§Ù„Ù†ØµÙŠØ© Ø¥Ù„Ù‰ ØµÙˆØ±ØŒ ÙŠÙØ¸Ù‡Ø± Ø£Ø­Ø¯Ø« Ù‚Ø¯Ø±Ø§Øª Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ø§Ù„ØªÙˆÙ„ÙŠØ¯ÙŠ.',
+            'proj-title-8': 'Ù…Ø´Ø§Ø±ÙŠØ¹ Ø§Ø³ØªØ®Ø±Ø§Ø¬ Ø§Ù„ÙˆÙŠØ¨',
+            'proj-desc-8': 'Ù…Ø¬Ù…ÙˆØ¹Ø© Ù…Ù† 7 Ø£Ø¯ÙˆØ§Øª Ø§Ø³ØªØ®Ø±Ø§Ø¬ Ù„Ù„ÙƒØªØ¨ ÙˆØ§Ù„Ø¯ÙˆØ±Ø§Øª ÙˆÙ‚ÙˆØ§Ø¦Ù… Ø§Ù„ÙˆØ¸Ø§Ø¦Ù ÙˆØ§Ù„Ù…Ø¨Ø§Ø±ÙŠØ§Øª Ø§Ù„Ø±ÙŠØ§Ø¶ÙŠØ© ÙˆÙ‚ÙˆØ§Ø¦Ù… Ø§Ù„Ø³ÙŠØ§Ø±Ø§Øª ÙˆØºÙŠØ±Ù‡Ø§ØŒ ØªÙØ¸Ù‡Ø± Ù…Ù‡Ø§Ø±Ø§Øª Ø§Ø³ØªØ®Ø±Ø§Ø¬ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆÙ…Ø¹Ø§Ù„Ø¬ØªÙ‡Ø§.',
+            'proj-title-9': 'ÙˆÙƒÙ„Ø§Ø¡ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ù„Ù„Ù…Ø¨ØªØ¯Ø¦ÙŠÙ†',
+            'proj-desc-9': 'Ù…Ø³ØªÙˆØ¯Ø¹ ØªØ¹Ù„ÙŠÙ…ÙŠ Ù…Ø¨Ù†ÙŠ Ø¹Ù„Ù‰ Ø¯ÙˆØ±Ø© Microsoft Ù„ÙˆÙƒÙ„Ø§Ø¡ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠØŒ ÙŠØºØ·ÙŠ Ø§Ù„Ù…ÙØ§Ù‡ÙŠÙ… Ø§Ù„Ø£Ø³Ø§Ø³ÙŠØ© Ù„Ø¨Ù†Ø§Ø¡ ÙˆÙƒÙ„Ø§Ø¡ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ ÙˆØ§Ù„Ø£Ù†Ø¸Ù…Ø© Ø§Ù„Ù…Ø³ØªÙ‚Ù„Ø©.',
+            'proj-title-10': 'Ù…ÙˆÙ„Ø¯ Ø±Ù…Ø² QR',
+            'proj-desc-10': 'Ù†Ø¸Ø§Ù… ØªÙˆÙ„ÙŠØ¯ Ø±Ù…ÙˆØ² QR Ù…Ø¨Ù†ÙŠ Ø¹Ù„Ù‰ Python Ù„Ø¥Ù†Ø´Ø§Ø¡ Ø±Ù…ÙˆØ² QR Ù‚Ø§Ø¨Ù„Ø© Ù„Ù„ØªØ®ØµÙŠØµ Ù„ØªØ·Ø¨ÙŠÙ‚Ø§Øª Ù…ØªÙ†ÙˆØ¹Ø© ØªØ´Ù…Ù„ Ø§Ù„Ø±ÙˆØ§Ø¨Ø· ÙˆØ§Ù„Ù†ØµÙˆØµ ÙˆÙ…Ø¹Ù„ÙˆÙ…Ø§Øª Ø§Ù„Ø§ØªØµØ§Ù„.',
+            'proj-title-11': 'Ù…Ø´Ø§Ø±ÙŠØ¹ ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª',
+            'proj-desc-11': 'Ù…Ø´Ø§Ø±ÙŠØ¹ ØªØ­Ù„ÙŠÙ„ Ø¨ÙŠØ§Ù†Ø§Øª Ø´Ø§Ù…Ù„Ø© ØªÙØ¸Ù‡Ø± Ù…Ù‡Ø§Ø±Ø§Øª Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆØ§Ù„ØªØµÙˆØ± ÙˆØ§Ù„ØªØ­Ù„ÙŠÙ„ Ø§Ù„Ø¥Ø­ØµØ§Ø¦ÙŠ Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Python ÙˆPandas.',
+            'proj-title-12': 'Ù…Ø´Ø§Ø±ÙŠØ¹ Power BI',
+            'proj-desc-12': 'Ù…Ø´Ø§Ø±ÙŠØ¹ Ø°ÙƒØ§Ø¡ Ø£Ø¹Ù…Ø§Ù„ ÙˆØªØµÙˆØ± Ø¨ÙŠØ§Ù†Ø§Øª Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Power BIØŒ ØªÙØ¸Ù‡Ø± Ø¥Ù†Ø´Ø§Ø¡ Ù„ÙˆØ­Ø§Øª Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆØ³Ø±Ø¯ Ù‚ØµØµ Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª.',
+            'skills-subtitle': 'Ø§Ù„Ù…Ù‡Ø§Ø±Ø§Øª Ø§Ù„ØªÙ‚Ù†ÙŠØ©',
+            'skills-title': 'Ù…Ø³ØªÙˆÙ‰ Ø§Ù„Ø®Ø¨Ø±Ø©',
+            'skill-cv': 'Ø§Ù„Ø±Ø¤ÙŠØ© Ø§Ù„Ø­Ø§Ø³ÙˆØ¨ÙŠØ©',
+            'skill-nlp': 'Ù…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ù„ØºØ§Øª ÙˆØ§Ù„Ù…Ø­ÙˆÙ„Ø§Øª',
+            'skill-dl': 'Ø§Ù„ØªØ¹Ù„Ù… Ø§Ù„Ø¹Ù…ÙŠÙ‚',
+            'skill-data': 'Ø§Ù„Ø¨ÙŠØ§Ù†Ø§Øª ÙˆØ§Ù„Ø£Ø¯ÙˆØ§Øª',
+            'certificates-subtitle': 'Ø§Ù„Ø§Ø¹ØªÙ…Ø§Ø¯Ø§Øª',
+            'certificates-title': 'Ø§Ù„Ø´Ù‡Ø§Ø¯Ø§Øª',
+            'certificates-description': 'Ø§Ù„Ø´Ù‡Ø§Ø¯Ø§Øª ÙˆØ§Ù„Ø¯ÙˆØ±Ø§Øª Ø§Ù„Ù…Ù‡Ù†ÙŠØ© Ø§Ù„Ù…ÙƒØªÙ…Ù„Ø©',
+            'about-subtitle': 'Ø¹Ù†ÙŠ',
+            'about-title': 'Ù…Ù† Ø§Ù„ÙØ¶ÙˆÙ„ Ø¥Ù„Ù‰ Ù‡Ù†Ø¯Ø³Ø© Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ',
+            'about-desc-1': 'Ø¨Ø¯Ø£Øª Ø±Ø­Ù„ØªÙŠ ÙÙŠ Ø§Ù„Ø°ÙƒØ§Ø¡ Ø§Ù„Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ø¨Ø³Ø¤Ø§Ù„ Ø¨Ø³ÙŠØ·: "ÙƒÙŠÙ ÙŠÙ…ÙƒÙ† Ù„Ù„Ø¢Ù„Ø§Øª Ø£Ù† ØªÙÙ‡Ù… ÙˆØªØªØ¹Ù„Ù… Ù…Ù† Ø§Ù„Ø¹Ø§Ù„Ù… Ù…Ù† Ø­ÙˆÙ„Ù†Ø§ØŸ"',
+            'about-desc-2': 'Ù‚Ø§Ø¯Ù†ÙŠ Ù‡Ø°Ø§ Ø§Ù„ÙØ¶ÙˆÙ„ Ù…Ù† ØªØ¬Ø±Ø¨Ø© Ø§Ù„Ø´Ø¨ÙƒØ§Øª Ø§Ù„Ø¹ØµØ¨ÙŠØ© Ø§Ù„Ø£Ø³Ø§Ø³ÙŠØ© Ø¥Ù„Ù‰ Ø¨Ù†Ø§Ø¡ Ø£Ù†Ø¸Ù…Ø© Ø°ÙƒØ§Ø¡ Ø§ØµØ·Ù†Ø§Ø¹ÙŠ Ø¬Ø§Ù‡Ø²Ø© Ù„Ù„Ø¥Ù†ØªØ§Ø¬ ØªØ­Ù„ Ù…Ø´ÙƒÙ„Ø§Øª ÙˆØ§Ù‚Ø¹ÙŠØ©. Ø¹Ù„Ù‰ Ø·ÙˆÙ„ Ø§Ù„Ø·Ø±ÙŠÙ‚ØŒ Ø·ÙˆØ±Øª Ø®Ø¨Ø±Ø© ÙÙŠ Ø§Ù„Ø±Ø¤ÙŠØ© Ø§Ù„Ø­Ø§Ø³ÙˆØ¨ÙŠØ© ÙˆÙ…Ø¹Ø§Ù„Ø¬Ø© Ø§Ù„Ù„ØºØ§Øª Ø§Ù„Ø·Ø¨ÙŠØ¹ÙŠØ© ÙˆØ§Ù„ØªØ¹Ù„Ù… Ø§Ù„Ø¹Ù…ÙŠÙ‚.',
+            'about-desc-3': 'Ø§Ù„ÙŠÙˆÙ…ØŒ Ø£ØªØ®ØµØµ ÙÙŠ Ø¨Ù†Ø§Ø¡ Ø£Ù†Ø¸Ù…Ø© Ø°ÙƒÙŠØ© ØªØ­Ø¯Ø« ÙØ±Ù‚Ø§Ù‹ - Ù…Ù† ÙƒØ´Ù Ù„ÙˆØ­Ø§Øª Ø§Ù„Ø³ÙŠØ§Ø±Ø§Øª ÙÙŠ Ù…ÙˆØ§Ù‚Ù Ø§Ù„Ø³ÙŠØ§Ø±Ø§Øª Ø¥Ù„Ù‰ ØªÙˆÙ„ÙŠØ¯ Ù…Ø­ØªÙˆÙ‰ ØªØ¹Ù„ÙŠÙ…ÙŠ Ø¨Ø§Ø³ØªØ®Ø¯Ø§Ù… Ù†Ù…Ø§Ø°Ø¬ Ø§Ù„Ù„ØºØ§Øª Ø§Ù„ÙƒØ¨ÙŠØ±Ø©.',
+            'about-years': 'Ø³Ù†ÙˆØ§Øª Ø§Ù„Ø®Ø¨Ø±Ø©',
+            'about-models': 'Ù†Ù…Ø§Ø°Ø¬ Ø§Ù„Ø¥Ù†ØªØ§Ø¬',
+            'about-projects': 'Ø§Ù„Ù…Ø´Ø§Ø±ÙŠØ¹ Ø§Ù„Ù…ÙƒØªÙ…Ù„Ø©',
+            'about-followers': 'Ù…ØªØ§Ø¨Ø¹ÙŠ Ù„ÙŠÙ†ÙƒØ¯ Ø¥Ù†',
+            'about-cta': 'ØªÙˆØ§ØµÙ„ Ù…Ø¹ÙŠ',
+            'contact-subtitle': 'ØªÙˆØ§ØµÙ„ Ù…Ø¹ÙŠ',
+            'contact-title': 'Ù„Ù†Ø¨Ù†ÙŠ Ø´ÙŠØ¦Ø§Ù‹ Ù…Ø°Ù‡Ù„Ø§Ù‹',
+            'contact-email-label': 'Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ',
+            'contact-linkedin-label': 'Ù„ÙŠÙ†ÙƒØ¯ Ø¥Ù†',
+            'contact-github-label': 'Ø¬ÙŠØª Ù‡Ø¨',
+            'contact-whatsapp-label': 'ÙˆØ§ØªØ³Ø§Ø¨',
+            'contact-location-label': 'Ø§Ù„Ù…ÙˆÙ‚Ø¹',
+            'contact-location-text': 'Ø§Ù„Ù‚Ø§Ù‡Ø±Ø©ØŒ Ù…ØµØ± (Øª Ø¹ Ù…+Ù¢)',
+            'contact-whatsapp-text': 'Ø¯Ø±Ø¯Ø´Ø© Ø¹Ù„Ù‰ ÙˆØ§ØªØ³Ø§Ø¨',
+            'contact-name': 'Ø§Ø³Ù…Ùƒ',
+            'contact-email': 'Ø¨Ø±ÙŠØ¯Ùƒ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ',
+            'contact-subject': 'Ø§Ù„Ù…ÙˆØ¶ÙˆØ¹',
+            'contact-message': 'Ø±Ø³Ø§Ù„ØªÙƒ',
+            'contact-send': 'Ø¥Ø±Ø³Ø§Ù„ Ø§Ù„Ø±Ø³Ø§Ù„Ø©',
+            'footer-copyright': 'Â© Ù¢Ù Ù¢Ù¤ Ù…Ø¹ØªØ² Ø¹Ø¨Ø¯ Ø§Ù„Ø±Ø¤ÙˆÙ. Ø¬Ù…ÙŠØ¹ Ø§Ù„Ø­Ù‚ÙˆÙ‚ Ù…Ø­ÙÙˆØ¸Ø©.',
+            'footer-tagline': 'Ø¨Ù†Ø§Ø¡ Ø£Ù†Ø¸Ù…Ø© Ø°ÙƒÙŠØ© ØªØ­ÙˆÙ„ Ø§Ù„ØµÙ†Ø§Ø¹Ø§Øª'
         }
     };
     
-    // Function to update page content based on language
+
     function updateContent(lang) {
-        // Update text content
+
         const elements = document.querySelectorAll('[data-i18n]');
         elements.forEach(el => {
             const key = el.getAttribute('data-i18n');
@@ -244,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Update placeholders
+
         const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
         placeholderElements.forEach(el => {
             const key = el.getAttribute('data-i18n-placeholder');
@@ -254,7 +262,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Check for saved language preference or default to English (LTR)
+
     const savedLang = localStorage.getItem('lang') || 'en';
     const html = document.documentElement;
     
@@ -284,12 +292,12 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(`Language switched to: ${newLang === 'ar' ? 'Arabic (RTL)' : 'English (LTR)'}`);
     });
     
-    // Resume and Download CV buttons now link directly to the PDF file
-    // No click handlers needed since they use the download attribute
+
+
     
-    // ===================================
-    // HERO ANIMATION TRIGGER
-    // ===================================
+
+
+
     
     function triggerHeroAnimations() {
         console.log('Triggering hero animations...');
@@ -299,17 +307,17 @@ document.addEventListener('DOMContentLoaded', function() {
         
         console.log('Hero elements found:', !!heroSection, !!heroVisual, !!heroDescription);
         
-        // Add hero-animated class using double requestAnimationFrame for proper timing
+
         requestAnimationFrame(() => {
             requestAnimationFrame(() => {
                 heroSection.classList.add('hero-animated');
                 console.log('hero-animated class added');
                 
-                // Start typing effect immediately for testing
+
                 console.log('Starting typing effect immediately...');
                 startTypingEffect(heroDescription);
                 
-                // Chain floatPhoto animation after slideInRight completes (0.6s + 0.3s delay = 0.9s)
+
                 setTimeout(() => {
                     heroVisual.classList.add('animation-complete');
                 }, 900);
@@ -317,11 +325,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Typing effect for bio paragraph
+
     function startTypingEffect(element) {
         console.log('Starting typing effect...');
         
-        // Check if user prefers reduced motion
+
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         
         if (prefersReducedMotion) {
@@ -342,7 +350,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (index < text.length) {
                 element.textContent += text.charAt(index);
                 index++;
-                setTimeout(type, 30); // Typing speed: 30ms per character
+
             } else {
                 console.log('Typing complete');
                 console.log('Element after:', element.textContent);
@@ -352,32 +360,32 @@ document.addEventListener('DOMContentLoaded', function() {
         type();
     }
     
-    // Restart typing effect when language changes
+
     const originalUpdateContent = updateContent;
     updateContent = function(lang) {
         originalUpdateContent(lang);
         
-        // Restart typing effect for bio paragraph after language change
+
         setTimeout(() => {
             const heroDescription = document.querySelector('.hero-description');
             startTypingEffect(heroDescription);
         }, 100);
     };
     
-    // Trigger animations on DOMContentLoaded
+
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', triggerHeroAnimations);
     } else {
         triggerHeroAnimations();
     }
     
-    // Navigation functionality
+
     const header = document.querySelector('.header');
     const menuToggle = document.getElementById('btn-menu');
     const navLinks = document.querySelector('.nav-links');
     const navLinksItems = document.querySelectorAll('.nav-link');
 
-    // Scroll-based header styling
+
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
@@ -386,7 +394,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Mobile menu toggle
+
     menuToggle.addEventListener('click', function() {
         navLinks.classList.toggle('active');
         const icon = menuToggle.querySelector('i');
@@ -394,7 +402,7 @@ document.addEventListener('DOMContentLoaded', function() {
         icon.classList.toggle('fa-times');
     });
 
-    // Close mobile menu when clicking a link
+
     navLinksItems.forEach(link => {
         link.addEventListener('click', function() {
             navLinks.classList.remove('active');
@@ -404,11 +412,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Smooth scroll for navigation links
+
     navLinksItems.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            // Skip external links, download links, and non-hash hrefs
+
             if (!href || !href.startsWith('#') || this.hasAttribute('download')) return;
             e.preventDefault();
             const targetSection = document.querySelector(href);
@@ -420,7 +428,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Active navigation link on scroll
+
     const sections = document.querySelectorAll('section[id]');
     
     window.addEventListener('scroll', function() {
@@ -444,7 +452,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Intersection Observer for scroll animations
+
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -456,7 +464,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate-in');
                 
-                // Animate skill bars when skills section is visible
+
                 if (entry.target.classList.contains('skills')) {
                     animateSkillBars();
                 }
@@ -464,14 +472,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    // Observe sections for animation
+
     const animatedElements = document.querySelectorAll('.expertise-card, .project-card, .skill-category, .contact-item, .certificate-card');
     animatedElements.forEach(el => observer.observe(el));
 
-    // Observe entire sections
+
     sections.forEach(section => observer.observe(section));
 
-    // Skill bar animation
+
     function animateSkillBars() {
         const skillBars = document.querySelectorAll('.skill-progress');
         skillBars.forEach(bar => {
@@ -483,7 +491,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Typing effect for hero (optional enhancement)
+
     function typeWriter(element, text, speed = 50) {
         let i = 0;
         element.textContent = '';
@@ -499,7 +507,7 @@ document.addEventListener('DOMContentLoaded', function() {
         type();
     }
 
-    // Parallax effect for hero orbs
+
     const orbs = document.querySelectorAll('.gradient-orb');
     
     document.addEventListener('mousemove', function(e) {
@@ -515,20 +523,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Form validation and submission
+
     const contactForm = document.querySelector('.contact-form form');
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form values
+
             const name = this.querySelector('input[type="text"]').value;
             const email = this.querySelector('input[type="email"]').value;
             const subject = this.querySelectorAll('input[type="text"]')[1]?.value || '';
             const message = this.querySelector('textarea').value;
             
-            // Basic validation
+
             if (!name || !email || !message) {
                 showNotification('Please fill in all required fields', 'error');
                 return;
@@ -539,7 +547,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Simulate form submission
+
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
             submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
@@ -554,21 +562,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Email validation helper
+
     function isValidEmail(email) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     }
 
-    // Notification system
+
     function showNotification(message, type = 'info') {
-        // Remove existing notifications
+
         const existingNotification = document.querySelector('.notification');
         if (existingNotification) {
             existingNotification.remove();
         }
         
-        // Create notification element
+
         const notification = document.createElement('div');
         notification.className = `notification notification-${type}`;
         notification.innerHTML = `
@@ -578,7 +586,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         `;
         
-        // Add styles
+
         notification.style.cssText = `
             position: fixed;
             top: 100px;
@@ -598,14 +606,14 @@ document.addEventListener('DOMContentLoaded', function() {
         
         document.body.appendChild(notification);
         
-        // Auto remove after 5 seconds
+
         setTimeout(() => {
             notification.style.animation = 'slideOut 0.3s ease-out';
             setTimeout(() => notification.remove(), 300);
         }, 5000);
     }
 
-    // Add animation keyframes
+
     const style = document.createElement('style');
     style.textContent = `
         @keyframes slideIn {
@@ -636,7 +644,7 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 
-    // Counter animation for statistics
+
     function animateCounter(element, target, duration = 2000) {
         let start = 0;
         const increment = target / (duration / 16);
@@ -654,7 +662,7 @@ document.addEventListener('DOMContentLoaded', function() {
         updateCounter();
     }
 
-    // Observe highlight numbers for counter animation
+
     const highlightNumbers = document.querySelectorAll('.highlight-number');
     const highlightObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -671,7 +679,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     highlightNumbers.forEach(num => highlightObserver.observe(num));
 
-    // Project card hover effect enhancement
+
     const projectCards = document.querySelectorAll('.project-card');
     
     projectCards.forEach(card => {
@@ -684,11 +692,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add loading state
+
     window.addEventListener('load', function() {
         document.body.classList.add('loaded');
         
-        // Hide loading screen if exists
+
         const loader = document.querySelector('.loader');
         if (loader) {
             loader.style.opacity = '0';
@@ -696,15 +704,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Console welcome message
-    console.log('%c🤖 Moataz Abdelraouf - AI Engineer', 'font-size: 24px; font-weight: bold; color: #6366f1;');
+
+    console.log('%cðŸ¤– Moataz Abdelraouf - AI Engineer', 'font-size: 24px; font-weight: bold; color: #6366f1;');
     console.log('%cBuilding Intelligent Systems That Transform Industries', 'font-size: 14px; color: #10b981;');
-    console.log('%cGitHub: https://github.com/Moataz899', 'font-size: 12px; color: #a3a3a3;');
+
 });
 
-// Keyboard navigation enhancement
+
 document.addEventListener('keydown', function(e) {
-    // Escape key closes mobile menu
+
     if (e.key === 'Escape') {
         const navLinks = document.querySelector('.nav-links');
         const menuToggle = document.getElementById('btn-menu');
@@ -718,7 +726,7 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// Performance optimization: Debounce resize events
+
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -731,9 +739,9 @@ function debounce(func, wait) {
     };
 }
 
-// Handle resize events
+
 window.addEventListener('resize', debounce(function() {
-    // Recalculate any size-dependent calculations
+
     const header = document.querySelector('.header');
     const navLinks = document.querySelector('.nav-links');
     
@@ -746,7 +754,7 @@ window.addEventListener('resize', debounce(function() {
     }
 }, 250));
 
-// Lazy load images (if any are added later)
+
 if ('IntersectionObserver' in window) {
     const imageObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -765,3 +773,60 @@ if ('IntersectionObserver' in window) {
         imageObserver.observe(img);
     });
 }
+
+
+
+const CV_PDF_PATH = 'pdf/Abdelraouf Dahy Abdelraouf-CV2.pdf';
+
+function openCVModal() {
+    const overlay = document.getElementById('cv-modal');
+    const iframe  = document.getElementById('cv-iframe');
+    const fallback = document.getElementById('cv-fallback');
+    if (!overlay) return;
+
+
+    if (iframe && !iframe.getAttribute('src')) {
+        iframe.setAttribute('src', CV_PDF_PATH);
+        iframe.onerror = function () {
+            iframe.style.display = 'none';
+            if (fallback) fallback.style.display = 'flex';
+        };
+    }
+
+
+    overlay.style.display = 'flex';
+    overlay.classList.remove('is-closing');
+    document.body.style.overflow = 'hidden';
+
+
+    if (typeof updateContent === 'function') {
+        updateContent(document.documentElement.lang || 'en');
+    }
+}
+
+function closeCVModal() {
+    const overlay = document.getElementById('cv-modal');
+    if (!overlay) return;
+    overlay.classList.add('is-closing');
+    setTimeout(function () {
+        overlay.style.display = 'none';
+        overlay.classList.remove('is-closing');
+        document.body.style.overflow = '';
+    }, 220);
+}
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const overlay = document.getElementById('cv-modal');
+    if (overlay) {
+        overlay.addEventListener('click', function (e) {
+            if (e.target === overlay) closeCVModal();
+        });
+    }
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeCVModal();
+    });
+});
+
+

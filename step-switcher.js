@@ -1,21 +1,3 @@
-// ===================================
-// NUMBERED STEP SWITCHER
-// Paginates any grid marked with [data-step-switcher]
-// into pages, controlled by a numbered pill control
-// (matches the reference "1 / 2" toggle screenshot).
-//
-// Usage (in index.htm):
-//   <div class="expertise-grid"
-//        data-step-switcher
-//        data-per-page="4"
-//        data-step-labels="Core ML,Applied AI">
-//     ...existing cards unchanged...
-//   </div>
-//
-// Add this script tag AFTER main.js, right before </body>:
-//   <script src="step-switcher.js"></script>
-// ===================================
-
 (function () {
     function chunk(arr, size) {
         const out = [];
@@ -60,7 +42,7 @@
         panelsContainer.querySelectorAll('.step-panel').forEach(function (panel, i) {
             const active = i === index;
             panel.classList.toggle('is-active', active);
-            panel.style.display = active ? '' : 'none'; // '' restores the grid's own display value
+            panel.style.display = active ? '' : 'none';
         });
         switcher.querySelectorAll('.step-switcher__btn').forEach(function (btn, i) {
             const active = i === index;
@@ -73,11 +55,10 @@
         const perPage = parseInt(grid.dataset.perPage || '4', 10);
         const items = Array.from(grid.children);
 
-        // Nothing to paginate if it already fits on one page.
         if (items.length <= perPage) return;
 
         const pages = chunk(items, perPage);
-        const originalClassName = grid.className; // preserves existing grid layout class(es)
+        const originalClassName = grid.className;
         const parent = grid.parentNode;
 
         const panelsContainer = document.createElement('div');

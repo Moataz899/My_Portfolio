@@ -1,22 +1,8 @@
-// ===================================
-// HERO TYPING / ERASING ANIMATION
-// Cycles the text inside [data-typed] through
-// a list of phrases, typing and erasing each one.
-//
-// Usage (already added to index.htm):
-//   <span class="hero-role__dynamic" data-typed='["Machine Learning Engineer","Computer Vision Specialist","Generative AI Developer","Agentic AI Builder"]'></span>
-//
-// Everything is configurable below — see the
-// CONFIG block for speed/delay knobs.
-// ===================================
-
 (function () {
-    // ---- CONFIG: tweak these to change feel ----
-    const TYPE_SPEED_MS = 65;     // ms per character while typing
-    const ERASE_SPEED_MS = 35;    // ms per character while erasing (usually faster than typing)
-    const HOLD_AFTER_TYPE_MS = 1600; // pause once a phrase is fully typed, before erasing
-    const HOLD_AFTER_ERASE_MS = 300;  // pause once erased, before typing the next phrase
-    // ---------------------------------------------
+    const TYPE_SPEED_MS = 65;
+    const ERASE_SPEED_MS = 35;
+    const HOLD_AFTER_TYPE_MS = 1600;
+    const HOLD_AFTER_ERASE_MS = 300;
 
     function startTyper(el) {
         let phrases;
@@ -35,7 +21,6 @@
             const currentPhrase = phrases[phraseIndex];
 
             if (!isDeleting) {
-                // Typing forward
                 charIndex++;
                 el.textContent = currentPhrase.slice(0, charIndex);
 
@@ -46,7 +31,6 @@
                 }
                 setTimeout(tick, TYPE_SPEED_MS);
             } else {
-                // Erasing backward
                 charIndex--;
                 el.textContent = currentPhrase.slice(0, charIndex);
 

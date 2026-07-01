@@ -1,364 +1,249 @@
-# Portfolio Redesign - Quick Start Guide
+# Moataz Dahy — AI Engineer Portfolio
 
-## 🎉 What's New
+A modern, responsive portfolio website with bilingual support (English/Arabic), smooth animations, and a premium dark/light theme.
 
-Your portfolio has been completely redesigned with a premium, modern aesthetic inspired by OpenAI, Vercel, and Stripe. The redesign includes:
+---
 
-### Design System
-- **Modern Color Palette**: Indigo (#6366f1) and Emerald (#10b981) gradients
-- **Premium Typography**: Inter for body text, JetBrains Mono for code
-- **Dark Theme**: Sophisticated dark mode with subtle gradients
-- **Responsive Design**: Mobile-first approach with 3 breakpoints
+## 📁 Project Structure
 
-### New Sections
-1. **Hero**: Animated gradient background with code block visualization
-2. **Expertise**: 4-card grid showcasing AI specializations
-3. **Featured Projects**: Premium project cards with metrics
-4. **Skills**: Interactive skill bars with progress indicators
-5. **About**: Story-driven section with statistics
-6. **Contact**: Modern contact form with social links
-
-### Enhanced Features
-- Smooth scroll navigation
-- Mobile-responsive hamburger menu
-- Scroll-based header styling
-- Intersection observer animations
-- Form validation with notifications
-- Parallax mouse effects on hero orbs
-- Counter animations for statistics
-- Keyboard navigation support
-
-## 📁 Files Created
-
-1. **index-redesigned.htm** - Complete redesigned HTML structure
-2. **style-redesigned.css** - Premium design system with CSS variables
-3. **main-redesigned.js** - Enhanced JavaScript interactivity
-
-## 🚀 How to Use
-
-### Option 1: Replace Current Files (Recommended)
-
-Replace your current files with the redesigned versions:
-
-```bash
-# Backup current files
-cp index.htm index-backup.htm
-cp style.css style-backup.css
-cp main.js main-backup.js
-
-# Replace with redesigned files
-cp index-redesigned.htm index.htm
-cp style-redesigned.css style.css
-cp main-redesigned.js main.js
+```
+Portfolio/
+├── index.htm                              # Main HTML
+├── style.css                              # Main stylesheet
+├── main.js                                # Core JavaScript (translations, theme, animations)
+├── card-tilt.css                          # 3D tilt + mouse glow styles
+├── card-tilt.js                           # 3D tilt logic
+├── hero-typing.css                        # Typing animation styles
+├── hero-typing.js                         # Typing animation logic
+├── step-switcher.css                      # Paginator component styles
+├── step-switcher.js                       # Paginator logic
+├── scroll-reveal.js                       # Scroll-triggered reveal animations
+├── pdf/
+│   └── Abdelraouf Dahy Abdelraouf-CV2.pdf
+└── img/
+    ├── moataz.png.png                     # Hero photo
+    ├── moataz2.jpg                        # About section photo
+    └── *.png                              # Certificate images
 ```
 
-### Option 2: Keep Both Versions
+---
 
-Keep both versions and switch between them:
+## ✨ Features
+
+### Sections
+| Section | Description |
+|---|---|
+| **Hero** | Typing role animation, floating photo, staggered entrance |
+| **AI Expertise** | Paginated card grid with 3D tilt + mouse glow |
+| **Featured Projects** | Paginated cards with GitHub + Live Demo links |
+| **Expertise Level** | Skill bars with animated progress + mouse effects |
+| **Certifications** | Certificate cards with shine sweep on hover |
+| **About Me** | Floating photo animation, stats counter |
+| **Contact** | Contact form + social links |
+
+### Interactive Features
+- **Bilingual (EN/AR)** — Full translation with RTL layout, all sections including project titles and descriptions
+- **Dark / Light theme** — Toggle with `localStorage` persistence
+- **CV Modal** — Click "Download CV" to preview the PDF inline then download
+- **3D Card Tilt** — Mouse-tracking rotation + radial glow on all cards (`data-tilt`)
+- **Typing Animation** — Hero role cycles through 4 titles (always in English)
+- **Step Switcher** — Numbered paginator for Expertise and Projects sections
+- **Scroll Reveal** — Elements fade + slide in as you scroll down
+- **Skill Shimmer** — Shimmer sweep on progress bars when hovering skill cards
+- **Certificate Shine** — Light sweep across certificate image on hover
+- **Floating Photo** — Hero and About images float up/down on loop
+- **Hamburger Menu** — Responsive mobile navigation
+- **Scroll Header** — Navbar changes style on scroll
+
+---
+
+## 🚀 Running Locally
+
+Open `index.htm` directly in your browser, or use a local server for full PDF support:
 
 ```bash
-# Use redesigned version
-open index-redesigned.htm
+# Python
+python -m http.server 5500
 
-# Use original version
-open index.htm
+# Node.js
+npx http-server -p 5500
 ```
+
+Then go to `http://localhost:5500`
+
+---
 
 ## 🎨 Customization
 
-### Update Personal Information
-
-Edit `index-redesigned.htm`:
+### Personal Info — `index.htm`
 
 ```html
-<!-- Update name in hero -->
-<h1 class="hero-title">
-    Building Intelligent Systems<br>
-    <span class="gradient-text">That Transform Industries</span>
-</h1>
+<!-- Nav logo -->
+<span class="logo-text">YOUR NAME</span>
 
-<!-- Update contact information -->
-<a href="mailto:your-email@example.com">your-email@example.com</a>
-<a href="https://linkedin.com/in/your-profile">linkedin.com/in/your-profile</a>
-<a href="https://github.com/your-username">github.com/your-username</a>
+<!-- Hero title -->
+<span data-i18n="hero-title-1">Building Intelligent Systems</span>
+<span data-i18n="hero-title-2">That Transform Industries</span>
+
+<!-- Typing roles -->
+<span data-typed='["Role 1","Role 2","Role 3"]'></span>
+
+<!-- Contact links -->
+<a href="mailto:you@email.com">you@email.com</a>
+<a href="https://linkedin.com/in/you">linkedin.com/in/you</a>
+<a href="https://github.com/you">github.com/you</a>
 ```
 
-### Update Projects
+### Translations — `main.js`
 
-Replace placeholder project cards in `index-redesigned.htm`:
+All text is driven by the `translations` object:
+
+```javascript
+const translations = {
+    en: {
+        'nav-home': 'Home',
+        'hero-title-1': 'Building Intelligent Systems',
+        'proj-title-1': 'Car License Plate Detection',
+        // ...
+    },
+    ar: {
+        'nav-home': 'الرئيسية',
+        'hero-title-1': 'بناء أنظمة ذكية',
+        'proj-title-1': 'كشف لوحات السيارات',
+        // ...
+    }
+};
+```
+
+Every element with `data-i18n="key"` is updated automatically when the language toggles.
+
+### Colors — `style.css`
+
+```css
+/* Dark theme (default) */
+[data-theme="dark"] {
+    --color-primary: #8fa87a;       /* Green accent */
+    --color-background: #1a1d23;    /* Page background */
+    --color-surface: #252a33;       /* Card background */
+    --color-text-primary: #e8eaf0;
+    --color-text-secondary: #9aa0b0;
+}
+
+/* Light theme */
+:root {
+    --color-primary: #d97757;       /* Terracotta accent */
+    --color-background: #faf7f2;
+    --color-surface: #ffffff;
+}
+```
+
+### CV File
+
+Replace the PDF and update links in `index.htm`:
 
 ```html
-<div class="project-card">
-    <div class="project-image">
-        <!-- Replace with actual image -->
-        <img src="img/project-actual.jpg" alt="Project Name">
-    </div>
+<!-- Nav -->
+<a href="pdf/YourName-CV.pdf" class="nav-link" download>Resume</a>
+
+<!-- Hero button (opens modal) -->
+<button id="download-cv-btn" onclick="openCVModal()">Download CV</button>
+```
+
+Also update `CV_PDF_PATH` in `main.js`:
+```javascript
+const CV_PDF_PATH = 'pdf/YourName-CV.pdf';
+```
+
+### Adding a Project
+
+Copy a project card block in `index.htm` and update:
+
+```html
+<div class="project-card" data-tilt>
     <div class="project-content">
         <div class="project-tags">
-            <span class="tag">Your Category</span>
-            <span class="tag">Technology</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Python</span>
         </div>
-        <h3>Your Project Name</h3>
-        <p>Your project description...</p>
-        <div class="project-metrics">
-            <div class="metric">
-                <span class="metric-value">98%</span>
-                <span class="metric-label">Accuracy</span>
-            </div>
-        </div>
+        <h3 data-i18n="proj-title-13">Your Project Title</h3>
+        <p data-i18n="proj-desc-13">Your project description.</p>
         <div class="project-links">
-            <a href="https://github.com/your-repo" class="btn btn-outline btn-sm">
+            <a href="https://github.com/you/repo" target="_blank" class="btn btn-outline btn-sm">
                 <i class="fa-brands fa-github"></i>
-                Code
+                <span data-i18n="project-code">Code</span>
             </a>
-            <a href="https://demo-url.com" class="btn btn-primary btn-sm">
-                <i class="fa-solid fa-external-link"></i>
-                Demo
+            <a href="https://your-demo.com" target="_blank" class="btn btn-primary btn-sm">
+                <i class="fa-solid fa-play"></i>
+                <span data-i18n="project-demo">Live Demo</span>
             </a>
         </div>
     </div>
 </div>
 ```
 
-### Update Skills
+Then add the translation keys to both `en` and `ar` in `main.js`.
 
-Modify skill bars in `index-redesigned.htm`:
+---
 
-```html
-<div class="skill-item">
-    <div class="skill-info">
-        <span>Your Skill</span>
-        <span>90%</span>
-    </div>
-    <div class="skill-bar">
-        <div class="skill-progress" style="width: 90%"></div>
-    </div>
-</div>
-```
+## 📱 Responsive Breakpoints
 
-### Update Colors
+| Breakpoint | Target |
+|---|---|
+| `1280px` | Large desktops |
+| `1024px` | Laptops, tablet landscape |
+| `768px` | Tablet portrait, phone landscape |
+| `480px` | Modern phones |
+| `360px` | Small / older phones |
+| `hover: none` | Touch devices (disables 3D tilt) |
+| `landscape + short height` | Phones held sideways |
+| `print` | Clean print output |
 
-Edit CSS variables in `style-redesigned.css`:
-
-```css
-:root {
-    --color-primary: #6366f1;  /* Change primary color */
-    --color-accent: #10b981;    /* Change accent color */
-    /* ... other variables */
-}
-```
-
-## 📸 Adding Images
-
-### Hero Image
-Replace the code block with your photo:
-
-```html
-<div class="hero-visual">
-    <img src="img/your-photo.jpg" alt="Moataz Abdelraouf" class="hero-photo">
-</div>
-```
-
-Add to CSS:
-```css
-.hero-photo {
-    width: 100%;
-    max-width: 400px;
-    border-radius: var(--radius-2xl);
-    box-shadow: var(--shadow-glow);
-}
-```
-
-### Project Images
-Replace placeholders:
-
-```html
-<div class="project-image">
-    <img src="img/project1.jpg" alt="Project Name">
-</div>
-```
-
-### About Section Image
-Replace placeholder:
-
-```html
-<div class="about-image">
-    <img src="img/about-photo.jpg" alt="Moataz Abdelraouf">
-</div>
-```
-
-## 🔧 Advanced Customization
-
-### Add More Projects
-Copy and paste project card HTML, update content:
-
-```html
-<div class="project-card">
-    <!-- Your project content -->
-</div>
-```
-
-### Add Blog Section
-Add before footer:
-
-```html
-<section class="blog" id="blog">
-    <div class="container">
-        <div class="section-header">
-            <p class="section-subtitle">Thoughts</p>
-            <h2 class="section-title">Latest Articles</h2>
-        </div>
-        <!-- Blog cards -->
-    </div>
-</section>
-```
-
-### Add Certifications
-Add after skills section:
-
-```html
-<section class="certifications">
-    <div class="container">
-        <div class="section-header">
-            <p class="section-subtitle">Credentials</p>
-            <h2 class="section-title">Certifications</h2>
-        </div>
-        <div class="certifications-grid">
-            <!-- Certification cards -->
-        </div>
-    </div>
-</section>
-```
+---
 
 ## 🌐 Deployment
 
 ### GitHub Pages
-1. Push to GitHub repository
-2. Go to Settings → Pages
-3. Select main branch
-4. Your site will be at `https://username.github.io/repository-name`
+1. Push repo to GitHub
+2. Settings → Pages → select `main` branch
+3. Live at `https://username.github.io/repo-name`
 
 ### Netlify
-1. Drag and drop folder to Netlify
-2. Or connect GitHub repository
-3. Automatic deployment on push
+Drag and drop the project folder onto [netlify.com/drop](https://app.netlify.com/drop)
 
 ### Vercel
-1. Install Node.js (for full Next.js version)
-2. Follow implementation guide for Next.js setup
-3. Deploy to Vercel
+Connect your GitHub repo at [vercel.com](https://vercel.com) — auto-deploys on push.
 
-## 📱 Testing
-
-### Local Testing
-Simply open `index-redesigned.htm` in your browser:
-
-```bash
-# Windows
-start index-redesigned.htm
-
-# Mac
-open index-redesigned.htm
-
-# Linux
-xdg-open index-redesigned.htm
-```
-
-### Mobile Testing
-- Use browser DevTools device emulation
-- Test on actual devices
-- Check responsive breakpoints
-
-### Cross-Browser Testing
-Test in:
-- Chrome/Edge (Chromium)
-- Firefox
-- Safari (if on Mac)
-- Mobile browsers
-
-## 🎯 Next Steps
-
-### Immediate (Today)
-1. ✅ Review the redesigned portfolio
-2. ✅ Update personal information
-3. ✅ Replace placeholder images
-4. ✅ Update project details
-5. ✅ Test all links
-
-### Short-term (This Week)
-1. Add real project screenshots
-2. Update GitHub repository links
-3. Add live demo URLs
-4. Update LinkedIn with new portfolio link
-5. Share on social media
-
-### Long-term (Next Month)
-1. Install Node.js for Next.js migration
-2. Implement full Next.js version
-3. Add blog system
-4. Add AI assistant feature
-5. Set up custom domain
-
-## 📊 Performance
-
-The redesigned portfolio includes:
-- Optimized CSS with variables
-- Minimal JavaScript (no heavy frameworks)
-- Lazy loading support
-- Debounced resize events
-- Intersection Observer for animations
-
-## ♿ Accessibility
-
-Features included:
-- Semantic HTML structure
-- ARIA labels on interactive elements
-- Keyboard navigation support
-- Focus indicators
-- Color contrast compliance
-- Screen reader friendly
+---
 
 ## 🐛 Troubleshooting
 
-### Styles Not Loading
-- Check file paths in HTML
-- Clear browser cache
-- Verify CSS file exists
+| Problem | Fix |
+|---|---|
+| Styles not loading | Check `<link>` paths in `<head>`; clear cache (`Ctrl+Shift+R`) |
+| JS not working | Open console (`F12`); check script `src` paths |
+| Images not showing | Verify filenames and paths in `img/` folder |
+| Mobile menu broken | Ensure `main.js` is loaded; check `#btn-menu` exists |
+| Animations not playing | Check if `hero-animated` class is added; check console |
+| Translations broken | Verify `data-i18n` keys exist in `main.js` translations |
+| PDF not opening in modal | Run via local server (`localhost`) not file:// |
+| 3D tilt not working | Only works on desktop with mouse; disabled on touch screens by design |
 
-### JavaScript Not Working
-- Check console for errors
-- Verify script tag placement
-- Check file paths
+---
 
-### Images Not Showing
-- Verify image paths
-- Check file extensions
-- Ensure images exist in img/ folder
+## 🛠 Tech Stack
 
-### Mobile Menu Not Working
-- Check JavaScript is loaded
-- Verify button has correct ID
-- Check console for errors
+- **HTML5** — Semantic structure
+- **CSS3** — Variables, Flexbox, Grid, Animations, RTL
+- **Vanilla JavaScript** — No frameworks
+- **Font Awesome 6** — Icons
+- **Google Fonts** — Inter, JetBrains Mono
 
-## 📞 Support
+---
 
-For issues or questions:
-1. Check the full strategy document: `PORTFOLIO_REDESIGN_STRATEGY.md`
-2. Review implementation guide: `IMPLEMENTATION_GUIDE.md`
-3. Check browser console for errors
-4. Test in different browsers
+## 📄 License
 
-## 🎉 Celebrate
+This project is licensed under the MIT License — see the <a href="LICENSE.txt" target="_blank">LICENSE.txt</a> file for details.
 
-Your portfolio now looks professional and modern! 
+---
 
-**Key Improvements:**
-- ✨ Premium design inspired by top tech companies
-- 🎨 Modern color palette and typography
-- 📱 Fully responsive design
-- ⚡ Smooth animations and interactions
-- 🔍 Better SEO and accessibility
-- 📊 Clear value proposition
-- 🎯 Recruiter-optimized content
-
-**Share your new portfolio and start attracting opportunities!** 🚀
+*Built for Moataz Dahy — AI Engineer*

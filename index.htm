@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <!-- Header -->
+    
     <header class="header">
         <nav class="nav container">
             <a href="#" class="logo">
@@ -48,7 +48,7 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    
     <section class="hero" id="home">
         <div class="hero-background">
             <div class="gradient-orb orb-1"></div>
@@ -75,10 +75,10 @@
                             <span data-i18n="hero-view-work">View My Work</span>
                             <i class="fa-solid fa-arrow-right ml-2"></i>
                         </a>
-                        <a href="pdf/Abdelraouf Dahy Abdelraouf-CV2.pdf" class="btn btn-secondary" id="download-cv-btn" download>
+                        <button class="btn btn-secondary" id="download-cv-btn" onclick="openCVModal()">
                             <span data-i18n="hero-download-cv">Download CV</span>
                             <i class="fa-solid fa-download ml-2"></i>
-                        </a>
+                        </button>
                         <a href="#contact" class="btn btn-secondary">
                             <span data-i18n="hero-lets-talk">Let's Talk</span>
                             <i class="fa-solid fa-message ml-2"></i>
@@ -94,7 +94,7 @@
         </div>
     </section>
 
-    <!-- Expertise Section -->
+    
     <section class="expertise">
         <div class="container">
             <div class="section-header">
@@ -155,7 +155,7 @@
         </div>
     </section>
 
-    <!-- Featured Projects Section -->
+    
     <section class="projects" id="projects">
         <div class="container">
             <div class="section-header">
@@ -164,7 +164,7 @@
                 <p class="section-description" data-i18n="projects-description">Building AI solutions that solve real-world problems</p>
             </div>
             <div class="projects-grid" data-step-switcher data-per-page="3">
-                <!-- Project 1: Car License Plate Detection -->
+                
                 <div class="project-card" data-tilt>
                     <div class="project-content">
                         <div class="project-tags">
@@ -183,7 +183,7 @@
                     </div>
                 </div>
 
-                <!-- Project 2: Brain Tumor Classification -->
+                
                 <div class="project-card" data-tilt>
                     <div class="project-content">
                         <div class="project-tags">
@@ -202,7 +202,7 @@
                     </div>
                 </div>
 
-                <!-- Project 3: Twitter Sentiment Analysis -->
+                
                 <div class="project-card" data-tilt>
                     <div class="project-content">
                         <div class="project-tags">
@@ -221,7 +221,7 @@
                     </div>
                 </div>
 
-                <!-- Project 4: Text Summarizer & QA -->
+                
                 <div class="project-card" data-tilt>
                     <div class="project-content">
                         <div class="project-tags">
@@ -240,7 +240,7 @@
                     </div>
                 </div>
 
-                <!-- Project 5: Hand Gesture Recognition -->
+                
                 <div class="project-card" data-tilt>
                     <div class="project-content">
                         <div class="project-tags">
@@ -259,7 +259,7 @@
                     </div>
                 </div>
 
-                <!-- Project 6: Telegram Chatbot -->
+                
                 <div class="project-card" data-tilt>
                     <div class="project-content">
                         <div class="project-tags">
@@ -278,7 +278,7 @@
                     </div>
                 </div>
 
-                <!-- Project 7: Text to Image -->
+                
                 <div class="project-card" data-tilt>
                     <div class="project-content">
                         <div class="project-tags">
@@ -297,7 +297,7 @@
                     </div>
                 </div>
 
-                <!-- Project 8: Web Scraping Projects -->
+                
                 <div class="project-card" data-tilt>
                     <div class="project-content">
                         <div class="project-tags">
@@ -326,7 +326,7 @@
                     </div>
                 </div>
 
-                <!-- Project 9: AI Agents -->
+                
                 <div class="project-card" data-tilt>
                     <div class="project-content">
                         <div class="project-tags">
@@ -345,7 +345,7 @@
                     </div>
                 </div>
 
-                <!-- Project 10: QR Code Generator -->
+                
                 <div class="project-card" data-tilt>
                     <div class="project-content">
                         <div class="project-tags">
@@ -370,7 +370,7 @@
                     </div>
                 </div>
 
-                <!-- Project 11: Data Analysis -->
+                
                 <div class="project-card" data-tilt>
                     <div class="project-content">
                         <div class="project-tags">
@@ -389,7 +389,7 @@
                     </div>
                 </div>
 
-                <!-- Project 12: Power BI Projects -->
+                
                 <div class="project-card" data-tilt>
                     <div class="project-content">
                         <div class="project-tags">
@@ -417,7 +417,7 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+    
     <section class="skills" id="skills">
         <div class="container">
             <div class="section-header">
@@ -557,7 +557,7 @@
         </div>
     </section>
 
-    <!-- Certificates Section -->
+    
     <section class="certificates" id="certificates">
         <div class="container">
             <div class="section-header">
@@ -566,7 +566,7 @@
                 <p class="section-description" data-i18n="certificates-description">Professional certifications and courses completed</p>
             </div>
             <div class="certificates-grid" data-step-switcher data-per-page="3">
-                <!-- Certificate 1 -->
+                
                 <div class="certificate-card" data-tilt>
                     <div class="certificate-image">
                         <img src="img/AI Engineering training.png" alt="AI Engineering Certificate">
@@ -580,7 +580,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate 2 -->
+                
                 <div class="certificate-card" data-tilt>
                     <div class="certificate-image">
                         <img src="img/Stanford ML.png" alt="Machine Learning Certificate">
@@ -594,7 +594,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate 3 -->
+                
                 <div class="certificate-card" data-tilt>
                     <div class="certificate-image">
                         <img src="img/DL For CV.png" alt="Deep Learning Certificate">
@@ -608,7 +608,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate 4 -->
+                
                 <div class="certificate-card" data-tilt>
                     <div class="certificate-image">
                         <img src="img/DL For NLP.png" alt="Neural Networks Certificate">
@@ -622,7 +622,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate 5 -->
+                
                 <div class="certificate-card" data-tilt>
                     <div class="certificate-image">
                         <img src="img/Python For DS and ML.png" alt="Python for Data Science Certificate">
@@ -636,7 +636,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate 6 -->
+                
                 <div class="certificate-card" data-tilt>
                     <div class="certificate-image">
                         <img src="img/Kaggle Python.png" alt="Kaggle Python Certificate">
@@ -650,7 +650,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate 7 -->
+                
                 <div class="certificate-card" data-tilt>
                     <div class="certificate-image">
                         <img src="img/Kaggle Pandas.png" alt="Kaggle Pandas Certificate">
@@ -664,7 +664,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate 8 -->
+                
                 <div class="certificate-card" data-tilt>
                     <div class="certificate-image">
                         <img src="img/Ai for everyone.png" alt="AI for Everyone Certificate">
@@ -678,7 +678,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate 9 -->
+                
                 <div class="certificate-card" data-tilt>
                     <div class="certificate-image">
                         <img src="img/HUAWEI AI.png" alt="Huawei AI Certificate">
@@ -692,7 +692,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate 10 -->
+                
                 <div class="certificate-card" data-tilt>
                     <div class="certificate-image">
                         <img src="img/Sprints For Ai and ML.png" alt="Sprints AI Certificate">
@@ -706,7 +706,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate 11 -->
+                
                 <div class="certificate-card" data-tilt>
                     <div class="certificate-image">
                         <img src="img/Clean Code.png" alt="Clean Code Certificate">
@@ -720,7 +720,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate 12 -->
+                
                 <div class="certificate-card" data-tilt>
                     <div class="certificate-image">
                         <img src="img/CCNA.png" alt="CCNA Certificate">
@@ -734,7 +734,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate 13 -->
+                
                 <div class="certificate-card" data-tilt>
                     <div class="certificate-image">
                         <img src="img/Device Management.png" alt="Device Management Certificate">
@@ -748,7 +748,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate 14 -->
+                
                 <div class="certificate-card" data-tilt>
                     <div class="certificate-image">
                         <img src="img/intro to programming.png" alt="Intro to Programming Certificate">
@@ -762,7 +762,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate 15 -->
+                
                 <div class="certificate-card" data-tilt>
                     <div class="certificate-image">
                         <img src="img/intro to networks.png" alt="Intro to Networks Certificate">
@@ -776,7 +776,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate 16 -->
+                
                 <div class="certificate-card" data-tilt>
                     <div class="certificate-image">
                         <img src="img/Kaggle intro to Programming.png" alt="Kaggle Intro to Programming Certificate">
@@ -793,7 +793,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    
     <section class="about" id="about">
         <div class="container">
             <div class="about-content">
@@ -843,7 +843,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header">
@@ -923,7 +923,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -953,5 +953,39 @@
     <script src="step-switcher.js"></script>
     <script src="hero-typing.js"></script>
     <script src="card-tilt.js"></script>
+
+    
+    <div id="cv-modal" class="cv-modal-overlay" role="dialog" aria-modal="true" aria-label="Curriculum Vitae" style="display:none;">
+        <div class="cv-modal-box">
+            <div class="cv-modal-header">
+                <span class="cv-modal-icon">📄</span>
+                <span class="cv-modal-title" data-i18n="cv-modal-title">Curriculum Vitae (CV)</span>
+                <button class="cv-modal-close" onclick="closeCVModal()" aria-label="Close">&#x2715;</button>
+            </div>
+            <p class="cv-modal-subtitle" data-i18n="cv-modal-subtitle">Viewing and downloading Moataz Dahy's Resume. Thank you for your interest!</p>
+            <div class="cv-modal-preview">
+                <iframe
+                    id="cv-iframe"
+                    src=""
+                    title="CV Preview"
+                    class="cv-iframe"
+                    loading="lazy">
+                </iframe>
+                <div class="cv-iframe-fallback" id="cv-fallback" style="display:none;">
+                    <i class="fa-solid fa-file-pdf" style="font-size:3rem;color:var(--color-primary);"></i>
+                    <p data-i18n="cv-fallback-text">PDF preview not supported in your browser.</p>
+                </div>
+            </div>
+            <div class="cv-modal-footer">
+                <a href="pdf/Abdelraouf Dahy Abdelraouf-CV2.pdf" download class="cv-download-btn" id="cv-download-link">
+                    <i class="fa-solid fa-download"></i>
+                    <span data-i18n="cv-download-btn">DOWNLOAD</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+
 </body>
 </html>
+

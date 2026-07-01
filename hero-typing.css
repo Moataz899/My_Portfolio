@@ -1,9 +1,3 @@
-/* ===================================
-   HERO TYPING ANIMATION
-   Add this file to your project and
-   link it in index.htm AFTER style.css
-   =================================== */
-
 .hero-role {
     display: flex;
     align-items: center;
@@ -26,7 +20,6 @@
     color: transparent;
 }
 
-/* Blinking cursor, matches the "|" in the brief */
 .hero-role__cursor {
     display: inline-block;
     width: 2px;
@@ -40,25 +33,6 @@
     0%, 50% { opacity: 1; }
     50.01%, 100% { opacity: 0; }
 }
-
-/* ===================================
-   OPTION 2: PURE-CSS FALLBACK
-   Use this ONLY if you don't want JS.
-   Limitation: a pure-CSS loop can reliably
-   type/erase ONE fixed phrase per keyframe
-   set; cycling through *different-length*
-   phrases smoothly really needs JS (see
-   hero-typing.js below) — this fallback
-   demonstrates the single-phrase technique
-   so you can duplicate it per phrase if
-   you ever want a no-JS version.
-
-   To use: give the element class
-   "hero-role__dynamic--css" instead of
-   letting JS populate it, and set
-   --phrase-steps to the character count
-   of your phrase (used by steps()).
-   =================================== */
 
 .hero-role__dynamic--css {
     display: inline-block;
