@@ -1,0 +1,87 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+.eggs/
+env/
+venv/
+ENV/
+*.pkl
+
+# Rust
+target/
+Cargo.lock
+
+# Go
+bin/
+*.exe
+*.test
+*.out
+*.log
+
+# Log files
+*.log
+.log/
+.logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build outputs
+dist/
+build/
+.out/
+.next/
+coverage/
+*.coverage
+.nyc_output/
+
+# Compiled Electron
+apps/desktop-recorder/out/
+apps/desktop-recorder/build/
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# Docker
+*.pid
+docker-compose.override.yml
+
+# Generated assets
+packages/**/dist/
+packages/**/build/
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*.swn
+*.env
+
+# IDE / Editor settings
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.sublime-workspace
+
+# Monorepo
+turbo/
+nx/
+cache/
+
+# Temporary folders
+tasks/
+temp/
+.vscode/
